@@ -18,15 +18,23 @@ interface ServicePageProps {
   params: Promise<{ slug: string }>;
 }
 
+const SLUG_ALIASES: Record<string, string> = {
+  seo: "seo-digital-marketing",
+  "digital-marketing": "seo-digital-marketing",
+};
+
 export async function generateStaticParams() {
-  return SERVICES.map((service) => ({
+  const primary = SERVICES.map((service) => ({
     slug: service.slug,
   }));
+  const aliases = Object.keys(SLUG_ALIASES).map((slug) => ({ slug }));
+  return [...primary, ...aliases];
 }
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const service = SERVICES.find((s) => s.slug === slug);
+  const targetSlug = SLUG_ALIASES[slug] || slug;
+  const service = SERVICES.find((s) => s.slug === targetSlug);
   if (!service) return {};
 
   return {
@@ -50,10 +58,11 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
 
 async function ServiceDetailContent({ params }: ServicePageProps) {
   const { slug } = await params;
-  const service = SERVICES.find((s) => s.slug === slug);
+  const targetSlug = SLUG_ALIASES[slug] || slug;
+  const service = SERVICES.find((s) => s.slug === targetSlug);
   if (!service) notFound();
 
-  const serviceIndex = SERVICES.findIndex((s) => s.slug === slug);
+  const serviceIndex = SERVICES.findIndex((s) => s.slug === targetSlug);
 
   const relatedProjects = SELECTED_WORK_PROJECTS.filter(
     (p) => p.service.toLowerCase().includes(service.title.toLowerCase()) || p.service === service.title
@@ -178,6 +187,16 @@ async function ServiceDetailContent({ params }: ServicePageProps) {
                 >
                   <span>Chat on WhatsApp</span>
                 </a>
+
+                {service.slug === "influencer-marketing" && (
+                  <Link
+                    href="/influencers"
+                    className="w-full sm:w-auto h-[50px] px-7 rounded-full bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5"
+                  >
+                    <span>Browse Creator Profiles & Rates</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                )}
               </div>
             </div>
 

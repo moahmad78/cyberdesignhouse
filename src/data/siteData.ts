@@ -51,18 +51,108 @@ export const SITE_METADATA = {
 
 export const SERVICES: ServiceData[] = [
   {
+    id: "influencer-marketing",
+    slug: "influencer-marketing",
+    number: "01",
+    title: "Influencer Marketing",
+    shortTitle: "Influencers",
+    heroHeadline: "Creator profiles, rates, audience details aur campaign booking.",
+    heroSubheading: "Collaborate with verified tech, luxury interior, SaaS, and lifestyle creators. Verified audience engagement, transparent rates, and end-to-end viral reel production.",
+    oneLine: "Creator profiles, rates, audience details aur campaign booking.",
+    bullets: [
+      "Vetted creator profiles with verified metrics",
+      "Transparent creator rates & deliverables",
+      "Viral video reels & end-to-end campaign booking"
+    ],
+    overview: [
+      "Modern buyers don't trust faceless corporate ads—they trust creators who build in public, review real products, and command engaged communities. Our Influencer Marketing service gives your brand immediate access to our verified creator network.",
+      "We manage everything: audience vetting, rate negotiations, script angles, 4K reel filming, and collaborative co-author distribution with paid ad boosting for guaranteed viral reach and inbound enquiries."
+    ],
+    offerings: [
+      {
+        title: "Vetted Creator Matchmaking",
+        description: "Direct access to our curated roster of creators across Tech & AI, Interior Design, SaaS, and Modern Growth with authentic engagement."
+      },
+      {
+        title: "Transparent Rate Cards & Booking",
+        description: "Clear per-reel pricing, story packages, and usage rights without hidden agency markups or confusing terms."
+      },
+      {
+        title: "Short-Form Video & Reel Production",
+        description: "Engaging 9:16 vertical video concepts, hook-driven scripts, high-production filming, and conversion-optimized edits."
+      },
+      {
+        title: "Audience Demographics & Audit",
+        description: "Deep audience analysis ensuring 85%+ genuine regional followers, target age groups, and real comment engagement."
+      },
+      {
+        title: "Co-Author Collaborative Publishing",
+        description: "Publishing directly to the creator's profile as an Instagram/LinkedIn collaborator to tap into their loyal followers immediately."
+      },
+      {
+        title: "Paid Boost & Lead Retargeting",
+        description: "Amplifying winning creator reels through Meta Partnership Ads to drive measurable leads and website visits."
+      }
+    ],
+    process: [
+      { step: "01", title: "Brand Brief & ICP", description: "Define campaign objectives, target audience demographics, value propositions, and key talking points." },
+      { step: "02", title: "Creator Selection", description: "Pick from verified creator profiles with confirmed availability, past performance metrics, and rates." },
+      { step: "03", title: "Hook & Script Writing", description: "Crafting attention-grabbing hooks within the first 3 seconds and natural product integration scripts." },
+      { step: "04", title: "Filming & Editing", description: "Creators record in high-end studios with professional audio, B-roll, dynamic subtitles, and brand assets." },
+      { step: "05", title: "Collaborative Launch", description: "Co-authored live release, scheduled at peak engagement hours with active comment moderation." },
+      { step: "06", title: "Analytics & Telemetry", description: "Detailed campaign performance tracking: total views, shares, saves, website visits, and direct inquiries." }
+    ],
+    deliverables: [
+      "Finished 4K 60FPS vertical video reels (9:16 format)",
+      "Co-author collaborative post on verified creator profile",
+      "Engaging copy, hashtags, and pinned CTA comment",
+      "30 to 90 days commercial digital ad usage rights",
+      "Raw b-roll footage and outtakes for your brand archive",
+      "Comprehensive post-campaign view and conversion report"
+    ],
+    technologies: ["Instagram Reels", "YouTube Shorts", "LinkedIn Creator", "Meta Partnership Ads", "Creator Studio", "CapCut Pro", "WhatsApp Business API"],
+    outcomes: [
+      { metric: "1.8M+", label: "Verified network reach" },
+      { metric: "4.8%", label: "Average engagement rate" },
+      { metric: "100%", label: "Authentic human creators" },
+      { metric: "48h", label: "Fast brief-to-draft turnaround" }
+    ],
+    faqs: [
+      {
+        question: "How do you select and vet influencers for campaigns?",
+        answer: "We manually audit every creator on our roster for audience authenticity, comment-to-view ratios, past sponsor performance, and technical niche authority. We never work with bot-boosted accounts."
+      },
+      {
+        question: "Can we review and approve the reel before it goes live?",
+        answer: "Yes, 100%. Creators submit rough cuts and final edits for your review. You have revision rounds to guarantee that your brand message, pronunciation, and visuals match guidelines before publication."
+      },
+      {
+        question: "Do we get rights to run the video as a paid ad?",
+        answer: "Yes, all our creator agreements include digital commercial usage rights so you can run Partnership Ads on Meta and TikTok directly from the creator's handle."
+      },
+      {
+        question: "Can new creators apply to join your network?",
+        answer: "Yes! Independent tech, design, and business creators can submit their profile, average views, and portfolio on our /influencers page for vetting and onboarding."
+      }
+    ],
+    meta: {
+      title: "Influencer Marketing & Creator Reels | Cyber Design House",
+      description: "Book verified tech, interior, SaaS and design influencers. Transparent rates, audience analytics and viral reel production in Bangalore."
+    }
+  },
+  {
     id: "web-development",
     slug: "web-development",
-    number: "01",
-    title: "Web Development",
-    shortTitle: "Web Dev",
-    heroHeadline: "Websites that look sharp and perform fast.",
-    heroSubheading: "From business websites to custom web platforms, we design, build and launch with one dedicated engineering and design team.",
-    oneLine: "Fast, secure, conversion-focused websites and web apps.",
+    number: "02",
+    title: "Website Development",
+    shortTitle: "Website Dev",
+    heroHeadline: "Business websites, e-commerce aur custom web platforms.",
+    heroSubheading: "From business websites to custom web platforms and e-commerce stores, we design, build and launch with one dedicated engineering and design team.",
+    oneLine: "Business websites, e-commerce aur custom web platforms.",
     bullets: [
-      "Business and landing websites",
-      "Custom web apps and portals",
-      "High-converting e-commerce stores"
+      "Business websites & corporate digital presence",
+      "Custom web platforms, portals and SaaS frontends",
+      "High-converting, frictionless e-commerce stores"
     ],
     overview: [
       "Your website is the digital storefront, sales engineer, and brand anchor of your business. We build lightning-fast web applications and corporate websites engineered for maximum conversion, rock-solid security, and effortless scalability.",
@@ -136,23 +226,23 @@ export const SERVICES: ServiceData[] = [
       }
     ],
     meta: {
-      title: "Web Development Company in Bangalore | Cyber Design House",
-      description: "Custom websites, web apps and e-commerce built for speed, security and conversions. Talk to Cyber Design House for a free consultation."
+      title: "Website Development Company in Bangalore | Cyber Design House",
+      description: "Custom business websites, web apps and e-commerce platforms built for speed, security and conversions. Talk to Cyber Design House."
     }
   },
   {
     id: "app-development",
     slug: "app-development",
-    number: "02",
+    number: "03",
     title: "App Development",
     shortTitle: "App Dev",
-    heroHeadline: "Apps your users will actually enjoy.",
+    heroHeadline: "Android, iOS aur custom applications.",
     heroSubheading: "We turn ambitious ideas into reliable, buttery-smooth Android and iOS applications, from first prototype to App Store launch.",
-    oneLine: "Android and iOS apps built for real users.",
+    oneLine: "Android, iOS aur custom applications.",
     bullets: [
-      "Native and cross-platform mobile apps",
-      "Fluid UI and intuitive UX architecture",
-      "Resilient backend and real-time API integrations"
+      "Native and cross-platform mobile apps (iOS & Android)",
+      "Fluid UI and intuitive thumb-zone UX architecture",
+      "Resilient cloud backend and real-time API integrations"
     ],
     overview: [
       "Mobile applications require ruthless attention to performance, offline capabilities, and delight at every touch. We engineer consumer and enterprise mobile apps that run natively on Android and iOS devices.",
@@ -223,170 +313,88 @@ export const SERVICES: ServiceData[] = [
     ],
     meta: {
       title: "App Development Company in Bangalore | Cyber Design House",
-      description: "Android and iOS app development with UI design, backend and launch support. Share your idea with Cyber Design House today."
+      description: "Android, iOS and custom mobile application development with intuitive UI design, resilient backend and launch support."
     }
   },
   {
-    id: "seo",
-    slug: "seo",
-    number: "03",
-    title: "SEO",
-    shortTitle: "SEO",
-    heroHeadline: "Be the business people find first.",
-    heroSubheading: "Practical, data-backed Search Engine Optimization that steadily improves Google rankings, organic buyer traffic, and inbound consultation inquiries.",
-    oneLine: "Rank higher and get found by buyers.",
+    id: "seo-digital-marketing",
+    slug: "seo-digital-marketing",
+    number: "04",
+    title: "SEO & Digital Marketing",
+    shortTitle: "SEO & Marketing",
+    heroHeadline: "Search rankings, social media, ads aur lead generation.",
+    heroSubheading: "Data-backed Search Engine Optimization synchronized with high-converting paid advertising across Google, Meta, and social channels to drive qualified inquiries.",
+    oneLine: "Search rankings, social media, ads aur lead generation.",
     bullets: [
-      "Technical SEO & Core Web Vitals auditing",
-      "Targeted keyword & high-intent content strategy",
-      "Local SEO for Bangalore and Pan-India visibility"
+      "Google search rankings & Core Web Vitals SEO",
+      "High-intent search & precision social media ads",
+      "Lead generation funnels with instant conversion tracking"
     ],
     overview: [
-      "Search Engine Optimization is not about gaming algorithms with obsolete tricks; it is about building the most authoritative, lightning-fast, and comprehensive answer to what your target clients are searching for.",
-      "We diagnose and eliminate the technical hurdles that prevent search crawlers from indexing your site, while engineering targeted content clusters and authoritative local citations that generate predictable inbound leads."
+      "SEO and paid digital marketing are two halves of the same growth engine. Organic SEO builds compounding search authority and zero-cost traffic over time, while targeted paid advertising captures high-intent buyers immediately.",
+      "We orchestrate end-to-end customer acquisition: technical crawl fixes, keyword clustering, Google Ads, Meta video campaigns, conversion tracking, and automated WhatsApp lead follow-ups."
     ],
     offerings: [
       {
-        title: "Comprehensive Technical SEO Audit",
-        description: "Full crawl inspection analyzing indexation hurdles, canonical conflicts, JavaScript hydration, crawl budget, and redirect loops."
+        title: "Technical SEO & Core Web Vitals",
+        description: "Full crawl inspection analyzing indexation hurdles, schema markup, mobile speed, canonical integrity, and ranking signals."
       },
       {
         title: "High-Intent Keyword Intelligence",
-        description: "Deep research identifying transaction-ready keyword phrases with high buyer intent, balancing search volume against competition."
+        description: "Targeting commercial and transactional search queries with high buyer intent, balancing search volume against competitive difficulty."
       },
-      {
-        title: "On-Page Semantic Optimization",
-        description: "Structural heading hierarchy, schema markup, semantic metadata, image alt tags, and internal linking graph optimization."
-      },
-      {
-        title: "Content & Topic Cluster Strategy",
-        description: "Pillar and cluster content roadmaps designed to establish topical authority in your specific industry niche."
-      },
-      {
-        title: "Local SEO & Google Business Profile",
-        description: "Google Maps optimization, local citation building, and review acquisition strategies for Bangalore and regional markets."
-      },
-      {
-        title: "Core Web Vitals Remediation",
-        description: "Direct code-level optimizations to guarantee passing scores on Google's LCP, CLS, and INP ranking criteria."
-      }
-    ],
-    process: [
-      { step: "01", title: "Baseline Audit", description: "Comprehensive crawl of existing site structure, index health, backlink profile, and competitor rankings." },
-      { step: "02", title: "Keyword Architecture", description: "Mapping primary and secondary transactional keywords to designated page URLs." },
-      { step: "03", title: "Technical Remediation", description: "Direct developer-level fixes for speed, schema markup, mobile responsiveness, and sitemaps." },
-      { step: "04", title: "Content Engine", description: "Authoring high-value, informative service and thought-leadership pages matching search intent." },
-      { step: "05", title: "Authority Building", description: "High-quality citations, digital PR mentions, and local business directory synchronization." },
-      { step: "06", title: "Telemetry & Reporting", description: "Transparent monthly ranking reports, Google Search Console impressions, and qualified lead tracking." }
-    ],
-    deliverables: [
-      "Comprehensive 40+ point Technical SEO Audit Report",
-      "Keyword mapping spreadsheet with volume and difficulty metrics",
-      "Implemented JSON-LD structured data schemas on all key pages",
-      "Google Business Profile optimization checklist",
-      "Google Search Console & GA4 conversion tracking dashboard",
-      "Monthly transparent organic ranking and traffic performance reports"
-    ],
-    technologies: ["Google Search Console", "Google Analytics 4", "Ahrefs", "Semrush", "Screaming Frog", "Schema.org", "Google Tag Manager"],
-    outcomes: [
-      { metric: "100%", label: "White-hat sustainable techniques" },
-      { metric: "0", label: "Guaranteed gimmicks or risks" },
-      { metric: "3-6 Mo", label: "Typical compound growth curve" },
-      { metric: "Monthly", label: "Transparent performance reports" }
-    ],
-    faqs: [
-      {
-        question: "How long does SEO take to produce measurable business results?",
-        answer: "SEO is a compounding organic investment. Initial technical fixes and index improvements typically reflect in search consoles within 4 to 8 weeks. Noticeable ranking shifts and organic inquiry growth generally materialize between month 3 and month 6."
-      },
-      {
-        question: "Do you guarantee #1 rankings on Google?",
-        answer: "No legitimate agency can guarantee a #1 ranking on Google, as search algorithms constantly change and search engines advise against companies making such claims. What we guarantee is rigorous, white-hat technical execution, exhaustive keyword targeting, and proven growth methodologies."
-      },
-      {
-        question: "What information is included in your monthly SEO reports?",
-        answer: "Our monthly reports highlight actual business metrics: Google Search Console organic impression and click trajectories, ranking positions for priority keywords, geographic traffic origin, and conversion event completions (form submissions and call clicks)."
-      }
-    ],
-    meta: {
-      title: "SEO Services in Bangalore | Cyber Design House",
-      description: "Technical SEO, content strategy and local SEO to help your business rank higher on Google. Get a free SEO audit from Cyber Design House."
-    }
-  },
-  {
-    id: "digital-marketing",
-    slug: "digital-marketing",
-    number: "04",
-    title: "Digital Marketing",
-    shortTitle: "Marketing",
-    heroHeadline: "Marketing that brings leads, not just likes.",
-    heroSubheading: "We plan, run, and ruthlessly optimize paid advertising and digital campaigns across search, social, and direct messaging channels.",
-    oneLine: "Campaigns that turn attention into leads.",
-    bullets: [
-      "Google Ads & high-intent search campaigns",
-      "Meta Ads (Facebook & Instagram) with precision retargeting",
-      "Direct email and WhatsApp marketing funnels"
-    ],
-    overview: [
-      "Digital advertising without conversion engineering is just burning budget. We build synchronized acquisition funnels that capture high-intent searchers and turn passive social media scrollers into paying clients.",
-      "From high-converting ad copy and bespoke visual creatives to tracking pixels, landing pages, and automated WhatsApp follow-ups, we take end-to-end ownership of your customer acquisition pipeline."
-    ],
-    offerings: [
       {
         title: "Google Search & Performance Max Ads",
-        description: "Laser-targeted pay-per-click (PPC) campaigns capturing prospects actively searching for your high-ticket services."
+        description: "Laser-targeted pay-per-click (PPC) campaigns capturing prospects actively searching for your services."
       },
       {
         title: "Meta (Instagram & Facebook) Ads",
         description: "Engaging scroll-stopping video and visual creatives combined with lookalike and retargeting audiences."
       },
       {
-        title: "LinkedIn B2B Advertising",
-        description: "Hyper-targeted B2B campaigns reaching founders, CXOs, and procurement decision-makers by company size and role."
+        title: "Local SEO & Google Maps Optimization",
+        description: "Google Business Profile optimization, regional citations, and review acquisition for Bangalore and Pan-India visibility."
       },
       {
-        title: "Conversion Creative Production",
-        description: "High-impact static banners, motion graphics, and copywriting crafted specifically for direct response conversion."
-      },
-      {
-        title: "WhatsApp & Email Lead Funnels",
-        description: "Automated instant lead response systems that engage prospects via WhatsApp and email within 60 seconds of form submission."
-      },
-      {
-        title: "Full-Funnel Analytics & Attribution",
-        description: "Server-side tracking (CAPI), GTM event attribution, and cost-per-acquisition (CPA) optimization dashboards."
+        title: "Full-Funnel Analytics & Lead Attribution",
+        description: "Server-side tracking (CAPI), GTM event attribution, and cost-per-acquisition (CPA) dashboards."
       }
     ],
     process: [
-      { step: "01", title: "Audience & Unit Economics", description: "Calculating your customer lifetime value (LTV), target CPA, and ideal customer profile (ICP)." },
-      { step: "02", title: "Campaign Architecture", description: "Structuring search campaigns, audience segments, and budget allocation across platforms." },
-      { step: "03", title: "Creative & Copy Engine", description: "Designing multiple visual variations and testing compelling value-proposition hooks." },
-      { step: "04", title: "Tracking & Conversion Tagging", description: "Deploying Meta Conversions API (CAPI), Google Enhanced Conversions, and custom triggers." },
-      { step: "05", title: "Campaign Launch & Bidding", description: "Deploying campaigns with manual or smart bidding strategies to maximize qualified inquiries." },
-      { step: "06", title: "Weekly Iterative Optimization", description: "Trimming negative keywords, scaling top-performing ad sets, and improving landing page conversion." }
+      { step: "01", title: "Audit & Economics", description: "Comprehensive crawl of existing site structure, index health, target CPA, and ideal customer profile (ICP)." },
+      { step: "02", title: "Search & Keyword Strategy", description: "Mapping primary and secondary transactional keywords to designated page URLs and campaign ad sets." },
+      { step: "03", title: "Technical & Creative Sprint", description: "Direct developer-level fixes for speed and schema, paired with high-impact conversion creatives." },
+      { step: "04", title: "Tracking & Conversion Tagging", description: "Deploying Meta Conversions API (CAPI), Google Enhanced Conversions, and custom event triggers." },
+      { step: "05", title: "Campaign Launch & Optimization", description: "Deploying campaigns with smart bidding, trimming negative keywords, and improving landing page conversion." },
+      { step: "06", title: "Telemetry & Growth Reports", description: "Transparent monthly ranking reports, Google Search Console impressions, and qualified lead tracking." }
     ],
     deliverables: [
+      "Comprehensive 40+ point Technical SEO Audit Report",
+      "Keyword mapping spreadsheet with volume and difficulty metrics",
       "Complete ad account setup and governance across Google & Meta",
       "Bespoke creative design assets (static, carousel, and video scripts)",
       "Server-side Meta Conversions API & Google Tag Manager tracking",
-      "Dedicated high-converting landing page recommendations",
-      "Live 24/7 client performance reporting dashboard",
-      "Bi-weekly strategy review and budget optimization calls"
+      "Monthly transparent organic ranking and traffic performance reports"
     ],
-    technologies: ["Google Ads", "Meta Ads Manager", "LinkedIn Campaign Manager", "Google Tag Manager", "GA4", "Meta CAPI", "WhatsApp Business API"],
+    technologies: ["Google Search Console", "Google Analytics 4", "Google Ads", "Meta Ads Manager", "Ahrefs", "Semrush", "Meta CAPI", "Schema.org"],
     outcomes: [
+      { metric: "100%", label: "White-hat sustainable techniques" },
       { metric: "<60s", label: "WhatsApp lead routing response" },
-      { metric: "100%", label: "Conversion event attribution" },
       { metric: "Weekly", label: "Budget and CPA optimization" },
       { metric: "Zero", label: "Vanity metrics focus" }
     ],
     faqs: [
       {
-        question: "What advertising budget do I need to get started?",
-        answer: "We typically recommend a minimum ad spend of ₹35,000 to ₹75,000 ($450 - $900) per month per platform to generate statistically significant data for testing and steady lead volume. Our management fee is structured transparently as a flat monthly retainer."
+        question: "How do SEO and paid advertising work together?",
+        answer: "Paid ads deliver immediate traffic and validate which keywords and messaging convert prospects into paying customers. We then inject those proven high-converting keywords into your organic SEO strategy for sustainable, compounding long-term search dominance."
       },
       {
-        question: "Which platform is best for my business: Google Ads or Meta Ads?",
-        answer: "If people actively search for your service when they need it (e.g. IT services, emergency repairs, specific B2B software), Google Ads delivers immediate intent. If your product is visually compelling, aspirational, or requires brand education, Meta (Instagram/Facebook) is exceptionally effective for audience creation and retargeting."
+        question: "How long does SEO take to produce measurable business results?",
+        answer: "Initial technical fixes and index improvements typically reflect in search consoles within 4 to 8 weeks. Noticeable ranking shifts and organic inquiry growth generally materialize between month 3 and month 6."
+      },
+      {
+        question: "What advertising budget do I need to get started?",
+        answer: "We typically recommend a minimum ad spend of ₹35,000 to ₹75,000 per month per platform to generate statistically significant data for testing and steady lead volume. Our management fee is structured transparently as a flat monthly retainer."
       },
       {
         question: "How do you track and report campaign results?",
@@ -394,8 +402,8 @@ export const SERVICES: ServiceData[] = [
       }
     ],
     meta: {
-      title: "Digital Marketing Services in Bangalore | Cyber Design House",
-      description: "Google Ads, Meta Ads, social media and email marketing that bring real leads. Plan your campaign with Cyber Design House."
+      title: "SEO & Digital Marketing Services | Cyber Design House",
+      description: "Search rankings, social media ads and lead generation funnels engineered for real business revenue. Bangalore & Pan-India."
     }
   }
 ];

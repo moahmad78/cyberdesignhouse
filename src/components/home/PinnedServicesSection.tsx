@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { SERVICES } from "@/data/siteData";
-import { ArrowRight, Check, Code, Smartphone, Search, BarChart3 } from "lucide-react";
+import { ArrowRight, Check, Code, Smartphone, Video, TrendingUp } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const Services3DViewer = dynamic(
@@ -25,17 +25,17 @@ export const PinnedServicesSection: React.FC = () => {
   const activeService = SERVICES[activeTab];
 
   const serviceIcons = [
+    <Video key="influencer" className="w-5 h-5 text-white" />,
     <Code key="web" className="w-5 h-5 text-white" />,
     <Smartphone key="app" className="w-5 h-5 text-white" />,
-    <Search key="seo" className="w-5 h-5 text-white" />,
-    <BarChart3 key="mkt" className="w-5 h-5 text-white" />,
+    <TrendingUp key="seomkt" className="w-5 h-5 text-white" />,
   ];
 
   const serviceImages = [
-    "/images/work/web-dev-preview.jpg",
-    "/images/work/app-dev-preview.jpg",
-    "/images/work/seo-preview.jpg",
-    "/images/work/mkt-preview.jpg",
+    "/images/work-influencer.jpg",
+    "/images/work-web.jpg",
+    "/images/work-app.jpg",
+    "/images/work-marketing.jpg",
   ];
 
   return (
@@ -111,10 +111,10 @@ export const PinnedServicesSection: React.FC = () => {
                         {service.oneLine}
                       </p>
                       <Link
-                        href={`/services/${service.slug}`}
+                        href={service.slug === "influencer-marketing" ? "/influencers" : `/services/${service.slug}`}
                         className="inline-flex items-center gap-2 text-[12px] md:text-[13px] font-semibold tracking-widest text-white uppercase bg-white/10 hover:bg-white hover:text-[#0f172a] backdrop-blur-md border border-white/20 px-5 py-2.5 rounded-full shadow-sm transition-all"
                       >
-                        <span>Explore Specification</span>
+                        <span>{service.slug === "influencer-marketing" ? "View Creator Roster" : "Explore Specification"}</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                     </div>
@@ -181,10 +181,10 @@ export const PinnedServicesSection: React.FC = () => {
               {/* Navy pill button link */}
               <div className="pt-4 flex items-center gap-4">
                 <Link
-                  href={`/services/${activeService.slug}`}
+                  href={activeService.slug === "influencer-marketing" ? "/influencers" : `/services/${activeService.slug}`}
                   className="h-[48px] px-7 rounded-full bg-[#071633] text-white font-medium text-[14px] tracking-wide shadow-[0_8px_24px_rgba(7,22,51,0.15)] hover:shadow-[0_12px_30px_rgba(7,22,51,0.22)] transition-all hover:-translate-y-0.5 flex items-center gap-2"
                 >
-                  <span>View Full Details</span>
+                  <span>{activeService.slug === "influencer-marketing" ? "Explore Creator Network & Rates" : "View Full Details"}</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
