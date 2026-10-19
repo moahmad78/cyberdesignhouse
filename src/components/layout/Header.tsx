@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/components/brand/Logo";
 import { SERVICES } from "@/data/siteData";
-import { ChevronDown, Menu, X, ArrowRight, Sparkles, Phone } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
 
 export const Header: React.FC = () => {
   const pathname = usePathname();
@@ -14,6 +14,9 @@ export const Header: React.FC = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // If we are on subpages (e.g. /services/*, /contact, /privacy-policy), always use light header
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,8 +28,7 @@ export const Header: React.FC = () => {
         setIsScrolled(false);
       }
 
-      // Hide on scroll down, reveal on scroll up
-      if (currentScrollY > 180 && currentScrollY > lastScrollY && !mobileMenuOpen) {
+      if (currentScrollY > 160 && currentScrollY > lastScrollY && !mobileMenuOpen) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
@@ -39,11 +41,13 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY, mobileMenuOpen]);
 
-  // Close menus on route change
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesOpen(false);
   }, [pathname]);
+
+  // Is dark mode active for the header (only on Home page when not scrolled)
+  const isDarkHeader = isHomePage && !isScrolled;
 
   return (
     <>
@@ -51,21 +55,28 @@ export const Header: React.FC = () => {
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         } ${
-          isScrolled
-            ? "bg-[#0f172a]/85 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20 py-3.5"
+          isScrolled || !isHomePage
+            ? "bg-white/95 backdrop-blur-md border-b border-[#e5eaf2] shadow-sm py-3.5"
             : "bg-transparent py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Brand Logo */}
-          <Logo size="md" />
+          {/* Logo with dynamic theme */}
+          <Logo
+            size="md"
+            theme={isDarkHeader ? "dark" : "light"}
+          />
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation (Uppercase Links - PRD 5.2) */}
           <nav className="hidden md:flex items-center gap-8">
             <Link
               href="/"
-              className={`text-sm font-medium transition-colors hover:text-sky-400 ${
-                pathname === "/" ? "text-sky-400 font-semibold" : "text-slate-300"
+              className={`text-xs font-semibold uppercase tracking-[0.15em] transition-colors ${
+                isDarkHeader
+                  ? "text-white font-bold"
+                  : pathname === "/"
+                  ? "text-[#071633] font-bold"
+                  : "text-[#45556c] hover:text-[#071633]"
               }`}
             >
               Home
@@ -78,16 +89,20 @@ export const Header: React.FC = () => {
               onMouseLeave={() => setServicesOpen(false)}
             >
               <button
-                className={`flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-sky-400 py-1 ${
-                  pathname.startsWith("/services") ? "text-sky-400 font-semibold" : "text-slate-300"
+                className={`flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.15em] transition-colors py-1 ${
+                  isDarkHeader
+                    ? "text-slate-300 hover:text-white"
+                    : pathname.startsWith("/services")
+                    ? "text-[#071633] font-bold"
+                    : "text-[#45556c] hover:text-[#071633]"
                 }`}
                 onClick={() => setServicesOpen(!servicesOpen)}
                 aria-expanded={servicesOpen}
               >
                 Services
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    servicesOpen ? "rotate-180 text-sky-400" : "text-slate-400"
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    servicesOpen ? "rotate-180" : ""
                   }`}
                 />
               </button>
@@ -100,27 +115,26 @@ export const Header: React.FC = () => {
                     : "opacity-0 invisible translate-y-2 pointer-events-none"
                 }`}
               >
-                <div className="w-80 rounded-2xl glass-panel p-3 border border-sky-400/20 shadow-2xl shadow-sky-950/50 backdrop-blur-xl bg-[#0f172a]/95">
-                  <div className="text-[10px] uppercase font-mono tracking-wider text-slate-400 px-3 py-1.5 border-b border-white/10 flex items-center justify-between">
-                    <span>Engineering & Growth</span>
-                    <Sparkles className="w-3 h-3 text-sky-400" />
+                <div className="w-80 rounded-2xl bg-white p-3 border border-[#e5eaf2] shadow-xl">
+                  <div className="text-[11px] uppercase font-mono tracking-wider text-[#6e7d9b] px-3 py-1.5 border-b border-slate-100 font-semibold">
+                    Capabilities
                   </div>
                   <div className="mt-1 space-y-1">
                     {SERVICES.map((service) => (
                       <Link
                         key={service.slug}
                         href={`/services/${service.slug}`}
-                        className="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-800/80 transition-all border border-transparent hover:border-sky-400/30"
+                        className="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#f8fafc] transition-all"
                       >
-                        <span className="text-xs font-mono text-sky-400 mt-0.5 font-bold">
+                        <span className="text-xs font-mono text-[#071633] mt-0.5 font-bold">
                           {service.number}
                         </span>
                         <div>
-                          <div className="text-sm font-semibold text-white group-hover:text-sky-300 transition-colors flex items-center gap-1.5">
+                          <div className="text-sm font-semibold text-[#071633] group-hover:text-blue-600 transition-colors flex items-center gap-1.5">
                             {service.title}
-                            <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-sky-400" />
+                            <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-blue-600" />
                           </div>
-                          <p className="text-[11px] text-slate-400 line-clamp-1 mt-0.5">
+                          <p className="text-[11px] text-[#62748e] line-clamp-1 mt-0.5">
                             {service.oneLine}
                           </p>
                         </div>
@@ -133,42 +147,50 @@ export const Header: React.FC = () => {
 
             <Link
               href="/contact"
-              className={`text-sm font-medium transition-colors hover:text-sky-400 ${
-                pathname === "/contact" ? "text-sky-400 font-semibold" : "text-slate-300"
+              className={`text-xs font-semibold uppercase tracking-[0.15em] transition-colors ${
+                isDarkHeader
+                  ? "text-slate-300 hover:text-white"
+                  : pathname === "/contact"
+                  ? "text-[#071633] font-bold"
+                  : "text-[#45556c] hover:text-[#071633]"
               }`}
             >
               Contact
             </Link>
           </nav>
 
-          {/* Desktop Right CTA */}
+          {/* Navy Book Consultation Pill Button (PRD 3.6 & 5.2) */}
           <div className="hidden md:flex items-center gap-4">
             <Link
               href="/contact"
-              className="relative inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white transition-all duration-300 rounded-xl overflow-hidden group border border-sky-400/40 hover:border-sky-300 hover:shadow-[0_0_20px_rgba(56,189,248,0.4)]"
+              className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
+                isDarkHeader
+                  ? "bg-white text-[#071633] hover:bg-slate-100 shadow-md"
+                  : "bg-[#071633] text-white hover:bg-[#0f172a] shadow-sm hover:shadow-md"
+              }`}
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 opacity-80 group-hover:opacity-100 transition-opacity" />
-              <span className="relative flex items-center gap-2">
-                <span>Get a Free Consultation</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-              </span>
+              Book Consultation
             </Link>
           </div>
 
           {/* Mobile Menu Trigger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-xl text-slate-300 hover:text-white bg-slate-800/60 border border-white/10 focus:outline-none"
+            className={`md:hidden p-2 rounded-xl transition-colors ${
+              isDarkHeader
+                ? "text-white bg-slate-800/60"
+                : "text-[#071633] bg-slate-100"
+            }`}
             aria-label="Toggle Navigation Menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6 text-sky-400" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </header>
 
-      {/* Mobile Full-Screen Overlay Menu (Section 5.2) */}
+      {/* Mobile Full-Screen Menu Overlay */}
       <div
-        className={`fixed inset-0 z-30 bg-[#090d16]/98 backdrop-blur-2xl transition-all duration-500 md:hidden flex flex-col justify-between p-6 pt-24 ${
+        className={`fixed inset-0 z-30 bg-white transition-all duration-400 md:hidden flex flex-col justify-between p-6 pt-24 ${
           mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
       >
@@ -177,12 +199,12 @@ export const Header: React.FC = () => {
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-2xl font-bold text-white hover:text-sky-400 transition-colors py-2 border-b border-white/5"
+              className="block text-2xl font-bold text-[#071633] py-2 border-b border-slate-100"
             >
               Home
             </Link>
-            <div className="py-2 border-b border-white/5">
-              <span className="text-xs font-mono uppercase tracking-widest text-sky-400 block mb-3">
+            <div className="py-2 border-b border-slate-100">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#6e7d9b] block mb-3">
                 Services
               </span>
               <div className="grid grid-cols-1 gap-2.5 pl-2">
@@ -191,10 +213,10 @@ export const Header: React.FC = () => {
                     key={s.slug}
                     href={`/services/${s.slug}`}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between text-base font-medium text-slate-200 hover:text-sky-300 py-1"
+                    className="flex items-center justify-between text-base font-medium text-[#314158] hover:text-[#071633] py-1"
                   >
                     <span>{s.title}</span>
-                    <span className="text-xs font-mono text-slate-500">{s.number}</span>
+                    <span className="text-xs font-mono text-[#6e7d9b]">{s.number}</span>
                   </Link>
                 ))}
               </div>
@@ -202,7 +224,7 @@ export const Header: React.FC = () => {
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-2xl font-bold text-white hover:text-sky-400 transition-colors py-2 border-b border-white/5"
+              className="block text-2xl font-bold text-[#071633] py-2 border-b border-slate-100"
             >
               Contact
             </Link>
@@ -211,25 +233,15 @@ export const Header: React.FC = () => {
           <Link
             href="/contact"
             onClick={() => setMobileMenuOpen(false)}
-            className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold text-sm uppercase tracking-wider shadow-lg shadow-sky-500/25"
+            className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full bg-[#071633] text-white font-semibold text-xs uppercase tracking-wider shadow-md"
           >
-            <span>Get a Free Consultation</span>
+            <span>Book Consultation</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
-        {/* Mobile menu footer with phone & VoometDesign heritage */}
-        <div className="pt-6 border-t border-white/10 text-xs text-slate-400 space-y-2">
-          <a
-            href="tel:+919845014279"
-            className="flex items-center gap-2 text-sky-400 font-mono"
-          >
-            <Phone className="w-4 h-4" />
-            +91 98450 14279
-          </a>
-          <p className="text-[11px] text-slate-500">
-            A VoometDesign company · Established 2010 · Bangalore, India
-          </p>
+        <div className="pt-6 border-t border-slate-100 text-xs text-[#6e7d9b]">
+          A VoometDesign company · Bangalore, India
         </div>
       </div>
     </>

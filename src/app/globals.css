@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0f172a;
-  --bg-elevated: #1e293b;
-  --bg-surface: #13223f;
-  --bg-card: rgba(30, 41, 59, 0.65);
-  --text-primary: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
-  --accent: #38bdf8;
-  --accent-hover: #0ea5e9;
-  --accent-cyan: #38bdf8;
-  --accent-blue: #1d4ed8;
-  --accent-silver: #e2e8f0;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(56, 189, 248, 0.35);
-  --border-glow: rgba(56, 189, 248, 0.5);
+  --bg: #fafaf8;
+  --bg-alt: #f8fafc;
+  --surface: #ffffff;
+  --navy: #071633;
+  --navy-button: #0f172a;
+  --text-body: #45556c;
+  --text-list: #314158;
+  --text-muted: #62748e;
+  --caption: #6e7d9b;
+  --border: #e5eaf2;
+  --footer: #030712;
+  
+  --accent: #2563eb;
+  --accent-sky: #38bdf8;
+  --accent-navy: #071633;
   
   --font-heading: var(--font-outfit), system-ui, sans-serif;
   --font-body: var(--font-inter), system-ui, sans-serif;
@@ -23,100 +23,67 @@
 
 @theme {
   --color-bg: var(--bg);
-  --color-bg-elevated: var(--bg-elevated);
-  --color-bg-surface: var(--bg-surface);
-  --color-bg-card: var(--bg-card);
-  --color-text-primary: var(--text-primary);
+  --color-bg-alt: var(--bg-alt);
+  --color-surface: var(--surface);
+  --color-navy: var(--navy);
+  --color-navy-button: var(--navy-button);
+  --color-text-body: var(--text-body);
+  --color-text-list: var(--text-list);
   --color-text-muted: var(--text-muted);
-  --color-text-dim: var(--text-dim);
+  --color-caption: var(--caption);
+  --color-border: var(--border);
+  --color-footer: var(--footer);
   --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-accent-cyan: var(--accent-cyan);
-  --color-accent-blue: var(--accent-blue);
-  --color-accent-silver: var(--accent-silver);
-  --color-border-subtle: var(--border);
-  --color-border-hover: var(--border-hover);
+  --color-accent-sky: var(--accent-sky);
 }
 
 html {
   background-color: var(--bg);
-  color: var(--text-primary);
-  color-scheme: dark;
+  color: var(--text-body);
+  color-scheme: light;
   scroll-behavior: auto;
 }
 
 body {
   background-color: var(--bg);
-  color: var(--text-primary);
+  color: var(--text-body);
   font-family: var(--font-body);
   overflow-x: hidden;
   min-height: 100vh;
-  selection-background-color: #38bdf8;
-  selection-color: #0f172a;
 }
 
 ::selection {
-  background: rgba(56, 189, 248, 0.3);
-  color: #f8fafc;
+  background: rgba(7, 22, 51, 0.15);
+  color: #071633;
 }
 
-/* Glassmorphism Classes */
-.glass-panel {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+/* Light Card Style */
+.light-card {
+  background: #ffffff;
   border: 1px solid var(--border);
-}
-
-.glass-card {
-  background: rgba(30, 41, 59, 0.45);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(7, 22, 51, 0.04);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-card:hover {
-  border-color: rgba(56, 189, 248, 0.35);
-  box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.15);
+.light-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 30px -4px rgba(7, 22, 51, 0.08);
   transform: translateY(-2px);
-}
-
-/* Gradients */
-.text-gradient-cyan {
-  background: linear-gradient(135deg, #ffffff 0%, #38bdf8 60%, #818cf8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-gradient-silver {
-  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.glow-cyan {
-  box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
-}
-
-.glow-border {
-  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2), inset 0 0 15px rgba(56, 189, 248, 0.1);
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #cbd5e1;
   border-radius: 4px;
-  border: 2px solid #0f172a;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #38bdf8;
+  background: #94a3b8;
 }
 
 /* Lenis smooth scrolling support */
@@ -131,9 +98,6 @@ html.lenis, html.lenis body {
 }
 .lenis.lenis-stopped {
   overflow: hidden;
-}
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

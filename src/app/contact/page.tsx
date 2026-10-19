@@ -14,8 +14,6 @@ import {
   AlertCircle,
   Send,
   Loader2,
-  Sparkles,
-  ArrowRight,
 } from "lucide-react";
 
 export default function ContactPage() {
@@ -37,17 +35,17 @@ export default function ContactPage() {
   const availableServices = [
     "Web Development",
     "App Development",
-    "SEO & Technical Audit",
-    "Digital Marketing & Ads",
-    "Other Custom Solution",
+    "SEO",
+    "Digital Marketing",
+    "Other IT Consulting",
   ];
 
   const budgetOptions = [
-    "Under ₹50,000 (~$600)",
-    "₹50,000 - ₹1,50,000 ($600 - $1,800)",
-    "₹1,50,000 - ₹5,00,000 ($1,800 - $6,000)",
-    "₹5,00,000+ ($6,000+)",
-    "Not yet decided / Need guidance",
+    "Under ₹1 Lakh",
+    "₹1 Lakh - ₹3 Lakhs",
+    "₹3 Lakhs - ₹10 Lakhs",
+    "₹10 Lakhs+",
+    "To be discussed on discovery call",
   ];
 
   const handleServiceToggle = (service: string) => {
@@ -66,7 +64,7 @@ export default function ContactPage() {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message || !formData.consent) {
       setStatus("error");
-      setErrorMessage("Please fill in your name, email, message and agree to privacy terms.");
+      setErrorMessage("Please fill in all required fields and accept the privacy consent.");
       return;
     }
 
@@ -86,12 +84,11 @@ export default function ContactPage() {
       }
 
       setStatus("success");
-      // Trigger festive delight confetti
       confetti({
-        particleCount: 80,
-        spread: 70,
+        particleCount: 70,
+        spread: 60,
         origin: { y: 0.6 },
-        colors: ["#38bdf8", "#818cf8", "#34d399", "#e2e8f0"],
+        colors: ["#071633", "#2563eb", "#38bdf8", "#10b981"],
       });
     } catch (err: unknown) {
       setStatus("error");
@@ -106,34 +103,34 @@ export default function ContactPage() {
   );
 
   return (
-    <div className="relative pt-28 pb-20 overflow-hidden min-h-screen">
-      {/* Background glow */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-sky-500/10 rounded-full blur-[160px] pointer-events-none" />
-
+    <div className="relative pt-24 pb-20 overflow-hidden min-h-screen bg-[#fafaf8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Page Header */}
+        {/* Page Header (Caption label, Two-tone H2 - PRD 3.6 & 6.3) */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
-            Let's build something <span className="text-gradient-cyan">great together</span>.
+          <span className="text-[12px] uppercase tracking-[0.25em] text-[#6e7d9b] font-medium block mb-2">
+            Consultation & Enquiries
+          </span>
+          <h1 className="text-4xl sm:text-6xl font-semibold text-[#071633] tracking-tight leading-tight">
+            Let's build something <br />
+            <span className="font-light text-[#62748e]">great together.</span>
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-300">
-            Tell us about your upcoming web app, mobile product, SEO, or growth objectives. We reply within one business day with clear timelines and recommendations.
+          <p className="mt-4 text-base sm:text-lg text-[#45556c] font-light">
+            Tell us about your upcoming project or goals. We reply within one business day with clear timelines and recommendations.
           </p>
         </div>
 
         {/* 2-Column Layout (Section 6.3) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column: Form */}
-          <div className="lg:col-span-7 glass-panel p-6 sm:p-10 rounded-3xl border border-sky-400/20 bg-slate-900/90 shadow-2xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          {/* Left Column: Form on White Card (PRD 3.2 & 3.6) */}
+          <div className="lg:col-span-7 bg-white p-6 sm:p-10 rounded-3xl border border-[#e5eaf2] shadow-sm">
             {status === "success" ? (
               <div className="text-center py-12 space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-400 text-emerald-400 flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto mb-6">
                   <CheckCircle className="w-8 h-8" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">Consultation Request Received!</h2>
-                <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
-                  Thank you, <strong className="text-white">{formData.name}</strong>. Our senior engineering lead in Bangalore will review your requirements and follow up via email or phone within one business day.
+                <h2 className="text-2xl font-semibold text-[#071633]">Consultation Request Received!</h2>
+                <p className="text-[#45556c] text-sm font-light max-w-md mx-auto leading-relaxed">
+                  Thank you, <strong className="text-[#071633]">{formData.name}</strong>. Our senior lead in Bangalore will review your requirements and respond within one business day.
                 </p>
                 <div className="pt-6">
                   <button
@@ -151,7 +148,7 @@ export default function ContactPage() {
                         honeypot: "",
                       });
                     }}
-                    className="px-6 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-400 text-xs font-mono font-medium transition-colors"
+                    className="px-6 py-2.5 rounded-full bg-[#f8fafc] border border-[#e5eaf2] hover:bg-slate-100 text-[#071633] text-xs font-semibold uppercase tracking-wider transition-colors"
                   >
                     Submit Another Request
                   </button>
@@ -159,7 +156,6 @@ export default function ContactPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Honeypot field (hidden from real users) */}
                 <input
                   type="text"
                   name="honeypot"
@@ -173,31 +169,31 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Full Name */}
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
-                      Full Name <span className="text-sky-400">*</span>
+                    <label className="block text-xs uppercase tracking-wider text-[#314158] font-medium mb-2">
+                      Full Name <span className="text-blue-600">*</span>
                     </label>
                     <input
                       type="text"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="e.g. Vikram Sharma"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 focus:border-sky-400 focus:ring-1 focus:ring-sky-400 text-white placeholder-slate-500 text-sm transition-all outline-none"
+                      placeholder="Your full name"
+                      className="w-full px-4 py-3 rounded-xl bg-[#f8fafc] border border-[#e5eaf2] focus:border-[#071633] focus:bg-white text-[#071633] placeholder-slate-400 text-sm transition-all outline-none"
                     />
                   </div>
 
                   {/* Business Email */}
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
-                      Email Address <span className="text-sky-400">*</span>
+                    <label className="block text-xs uppercase tracking-wider text-[#314158] font-medium mb-2">
+                      Email Address <span className="text-blue-600">*</span>
                     </label>
                     <input
                       type="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="vikram@company.com"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 focus:border-sky-400 focus:ring-1 focus:ring-sky-400 text-white placeholder-slate-500 text-sm transition-all outline-none"
+                      placeholder="name@company.com"
+                      className="w-full px-4 py-3 rounded-xl bg-[#f8fafc] border border-[#e5eaf2] focus:border-[#071633] focus:bg-white text-[#071633] placeholder-slate-400 text-sm transition-all outline-none"
                     />
                   </div>
                 </div>
@@ -205,39 +201,39 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Phone */}
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
+                    <label className="block text-xs uppercase tracking-wider text-[#314158] font-medium mb-2">
                       Phone / WhatsApp Number
                     </label>
                     <input
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 98765 43210"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 focus:border-sky-400 focus:ring-1 focus:ring-sky-400 text-white placeholder-slate-500 text-sm transition-all outline-none"
+                      placeholder="+91 98450 14279"
+                      className="w-full px-4 py-3 rounded-xl bg-[#f8fafc] border border-[#e5eaf2] focus:border-[#071633] focus:bg-white text-[#071633] placeholder-slate-400 text-sm transition-all outline-none"
                     />
                   </div>
 
                   {/* Company */}
                   <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
+                    <label className="block text-xs uppercase tracking-wider text-[#314158] font-medium mb-2">
                       Company / Organization
                     </label>
                     <input
                       type="text"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      placeholder="Your Brand or Startup"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 focus:border-sky-400 focus:ring-1 focus:ring-sky-400 text-white placeholder-slate-500 text-sm transition-all outline-none"
+                      placeholder="Company or project name"
+                      className="w-full px-4 py-3 rounded-xl bg-[#f8fafc] border border-[#e5eaf2] focus:border-[#071633] focus:bg-white text-[#071633] placeholder-slate-400 text-sm transition-all outline-none"
                     />
                   </div>
                 </div>
 
-                {/* Service Multi-Select */}
+                {/* Service Multi-Select Chips (PRD 3.6: small uppercase pills, active one filled) */}
                 <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
-                    Services of Interest (Select all that apply)
+                  <label className="block text-xs uppercase tracking-wider text-[#314158] font-medium mb-2">
+                    Services of Interest
                   </label>
-                  <div className="flex flex-wrap gap-2.5">
+                  <div className="flex flex-wrap gap-2">
                     {availableServices.map((service) => {
                       const isSelected = formData.services.includes(service);
                       return (
@@ -245,10 +241,10 @@ export default function ContactPage() {
                           type="button"
                           key={service}
                           onClick={() => handleServiceToggle(service)}
-                          className={`px-3.5 py-2 rounded-xl text-xs font-medium border transition-all ${
+                          className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all ${
                             isSelected
-                              ? "bg-sky-500/20 border-sky-400 text-sky-300 shadow-[0_0_10px_rgba(56,189,248,0.25)]"
-                              : "bg-slate-800/60 border-slate-700 text-slate-400 hover:text-slate-200 hover:border-slate-600"
+                              ? "bg-[#071633] text-white shadow-sm"
+                              : "bg-[#f8fafc] border border-[#e5eaf2] text-[#45556c] hover:border-slate-300 hover:text-[#071633]"
                           }`}
                         >
                           {service}
@@ -260,17 +256,17 @@ export default function ContactPage() {
 
                 {/* Budget Range Dropdown */}
                 <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
+                  <label className="block text-xs uppercase tracking-wider text-[#314158] font-medium mb-2">
                     Estimated Budget Range (Optional)
                   </label>
                   <select
                     value={formData.budget}
                     onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 focus:border-sky-400 text-white text-sm transition-all outline-none"
+                    className="w-full px-4 py-3 rounded-xl bg-[#f8fafc] border border-[#e5eaf2] focus:border-[#071633] text-[#071633] text-sm transition-all outline-none"
                   >
-                    <option value="">Select budget tier</option>
+                    <option value="">Select an approximate scope</option>
                     {budgetOptions.map((opt) => (
-                      <option key={opt} value={opt} className="bg-slate-900 text-white">
+                      <option key={opt} value={opt}>
                         {opt}
                       </option>
                     ))}
@@ -279,16 +275,16 @@ export default function ContactPage() {
 
                 {/* Message */}
                 <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-2">
-                    Project Goals & Requirements <span className="text-sky-400">*</span>
+                  <label className="block text-xs uppercase tracking-wider text-[#314158] font-medium mb-2">
+                    Project Brief & Scope <span className="text-blue-600">*</span>
                   </label>
                   <textarea
                     rows={4}
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Briefly describe your objectives, existing stack or links, target launch date, and key features..."
-                    className="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 focus:border-sky-400 focus:ring-1 focus:ring-sky-400 text-white placeholder-slate-500 text-sm transition-all outline-none resize-none"
+                    placeholder="Briefly describe your objectives, target timeline, and specific requirements..."
+                    className="w-full px-4 py-3 rounded-xl bg-[#f8fafc] border border-[#e5eaf2] focus:border-[#071633] focus:bg-white text-[#071633] placeholder-slate-400 text-sm transition-all outline-none resize-none"
                   />
                 </div>
 
@@ -300,13 +296,13 @@ export default function ContactPage() {
                     required
                     checked={formData.consent}
                     onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
-                    className="w-4 h-4 mt-0.5 rounded bg-slate-800 border-slate-700 text-sky-500 focus:ring-sky-400"
+                    className="w-4 h-4 mt-0.5 rounded border-slate-300 text-[#071633] focus:ring-[#071633]"
                   />
-                  <label htmlFor="consent" className="text-xs text-slate-400 leading-relaxed">
-                    I agree to allow Cyber Design House to process my details to respond to this consultation inquiry in accordance with the{" "}
+                  <label htmlFor="consent" className="text-xs text-[#62748e] leading-relaxed">
+                    I agree to allow Cyber Design House to process my details to respond to this consultation enquiry in accordance with the{" "}
                     <Link
                       href="/privacy-policy"
-                      className="text-sky-400 hover:text-sky-300 underline underline-offset-2"
+                      className="text-[#071633] underline underline-offset-2 hover:text-blue-600"
                     >
                       Privacy Policy
                     </Link>
@@ -316,17 +312,17 @@ export default function ContactPage() {
 
                 {/* Error Banner */}
                 {status === "error" && (
-                  <div className="p-3.5 rounded-xl bg-red-950/60 border border-red-500/40 text-red-300 text-xs flex items-center gap-2">
+                  <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2">
                     <AlertCircle className="w-4 h-4 shrink-0" />
                     <span>{errorMessage}</span>
                   </div>
                 )}
 
-                {/* Submit Button */}
+                {/* Primary Button: Navy Rounded Pill (PRD 3.6) */}
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-sky-400 to-blue-600 hover:from-sky-300 hover:to-blue-500 text-slate-950 font-bold text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(56,189,248,0.3)] flex items-center justify-center gap-2 disabled:opacity-50"
+                  className="w-full py-4 rounded-full bg-[#071633] hover:bg-[#0f172a] text-white font-semibold text-xs uppercase tracking-wider transition-all duration-300 shadow-sm flex items-center justify-center gap-2 disabled:opacity-50"
                 >
                   {status === "loading" ? (
                     <>
@@ -336,7 +332,7 @@ export default function ContactPage() {
                   ) : (
                     <>
                       <span>Send Consultation Enquiry</span>
-                      <Send className="w-4 h-4" />
+                      <Send className="w-3.5 h-3.5" />
                     </>
                   )}
                 </button>
@@ -344,42 +340,41 @@ export default function ContactPage() {
             )}
           </div>
 
-          {/* Right Column: Contact Card, WhatsApp, Map */}
-          <div className="lg:col-span-5 space-y-8">
-            {/* Direct Studio Card */}
-            <div className="glass-panel p-8 rounded-3xl border border-sky-400/20 bg-slate-900/80 shadow-xl space-y-6">
+          {/* Right Column: Contact Card, WhatsApp, Map (PRD 6.3) */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="bg-white p-8 rounded-3xl border border-[#e5eaf2] shadow-sm space-y-6">
               <div>
-                <span className="text-xs font-mono uppercase tracking-widest text-sky-400 block mb-1">
+                <span className="text-[12px] uppercase tracking-[0.25em] text-[#6e7d9b] font-medium block mb-1">
                   Bangalore Studio
                 </span>
-                <h2 className="text-2xl font-bold text-white">Direct Contacts</h2>
-                <p className="text-xs text-slate-400 mt-1">
-                  Technology Arm of VoometDesign (Est. 2010)
+                <h2 className="text-2xl font-semibold text-[#071633]">Direct Contacts</h2>
+                <p className="text-xs text-[#62748e] mt-1">
+                  Technology Arm of VoometDesign (Established 2010)
                 </p>
               </div>
 
-              <div className="space-y-4 pt-2 border-t border-white/10 text-sm">
+              <div className="space-y-4 pt-2 border-t border-slate-100 text-sm">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-[#071633] shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-white block text-xs font-mono uppercase">
+                    <strong className="text-[#071633] block text-xs uppercase tracking-wider font-semibold">
                       Office Address
                     </strong>
-                    <span className="text-slate-300 text-xs leading-relaxed">
+                    <span className="text-[#45556c] text-xs leading-relaxed font-light">
                       {SITE_METADATA.address}
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
+                  <Phone className="w-5 h-5 text-[#071633] shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-white block text-xs font-mono uppercase">
-                      Phone / Inquiries
+                    <strong className="text-[#071633] block text-xs uppercase tracking-wider font-semibold">
+                      Phone / WhatsApp
                     </strong>
                     <a
                       href={`tel:${SITE_METADATA.phoneRaw}`}
-                      className="text-slate-300 hover:text-white font-mono text-xs transition-colors"
+                      className="text-[#45556c] hover:text-[#071633] font-mono text-xs transition-colors"
                     >
                       {SITE_METADATA.phone}
                     </a>
@@ -387,14 +382,14 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
+                  <Mail className="w-5 h-5 text-[#071633] shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-white block text-xs font-mono uppercase">
+                    <strong className="text-[#071633] block text-xs uppercase tracking-wider font-semibold">
                       Email
                     </strong>
                     <a
                       href={`mailto:${SITE_METADATA.email}`}
-                      className="text-slate-300 hover:text-white text-xs transition-colors"
+                      className="text-[#45556c] hover:text-[#071633] text-xs transition-colors"
                     >
                       {SITE_METADATA.email}
                     </a>
@@ -402,12 +397,12 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
+                  <Clock className="w-5 h-5 text-[#071633] shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-white block text-xs font-mono uppercase">
+                    <strong className="text-[#071633] block text-xs uppercase tracking-wider font-semibold">
                       Working Hours
                     </strong>
-                    <span className="text-slate-300 text-xs">
+                    <span className="text-[#45556c] text-xs font-light">
                       Monday to Friday: 9:30 AM – 6:30 PM IST
                     </span>
                   </div>
@@ -415,12 +410,12 @@ export default function ContactPage() {
               </div>
 
               {/* Direct WhatsApp Callout */}
-              <div className="pt-4 border-t border-white/10">
+              <div className="pt-2 border-t border-slate-100">
                 <a
                   href={`https://wa.me/919845014279?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs uppercase tracking-wider transition-all shadow-lg shadow-emerald-600/30"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs uppercase tracking-wider transition-all shadow-sm"
                 >
                   <MessageCircle className="w-4 h-4 fill-current" />
                   <span>Instant WhatsApp Chat</span>
@@ -428,14 +423,14 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Google Maps Embed (Section 6.3) */}
-            <div className="glass-panel rounded-3xl overflow-hidden border border-white/10 h-64 relative bg-slate-950">
+            {/* Google Maps Embed */}
+            <div className="rounded-3xl overflow-hidden border border-[#e5eaf2] h-64 relative bg-slate-100 shadow-sm">
               <iframe
                 title="Cyber Design House Bangalore Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.082531649666!2d77.590135!3d13.102287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae18608e2f8373%3A0x6476106606ea2bf7!2sYelahanka%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
-                style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
+                style={{ border: 0 }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

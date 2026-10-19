@@ -7,7 +7,7 @@ import { Phone, Mail, MapPin, ExternalLink, ArrowUpRight } from "lucide-react";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="relative bg-[#090e17] text-slate-300 border-t border-white/10 overflow-hidden pt-16 pb-12">
+    <footer className="relative bg-[#030712] text-slate-300 border-t border-slate-800 overflow-hidden pt-16 pb-12">
       {/* Large faceted CD watermark in background (Section 5.3) */}
       <div className="absolute -bottom-24 -right-24 pointer-events-none opacity-5 select-none w-96 h-96 sm:w-[500px] sm:h-[500px]">
         <Image
@@ -21,10 +21,10 @@ export const Footer: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-slate-800">
           {/* Brand & VoometDesign Endorsement */}
           <div className="lg:col-span-2 space-y-4">
-            <Logo size="lg" />
+            <Logo size="lg" theme="dark" />
             <p className="text-sm text-slate-400 max-w-sm leading-relaxed mt-2">
               Cyber Design House is the dedicated technology and digital growth arm of{" "}
               <a

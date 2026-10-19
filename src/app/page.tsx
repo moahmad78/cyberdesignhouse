@@ -9,8 +9,6 @@ import { SelectedWorkSection } from "@/components/home/SelectedWorkSection";
 import { TechOrbitScene } from "@/components/3d/TechOrbitScene";
 import { FaqSection } from "@/components/home/FaqSection";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
-import { SITE_METADATA } from "@/data/siteData";
-import { Quote } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Cyber Design House | 3D Web, App & Digital Growth by VoometDesign",
@@ -42,53 +40,39 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const testimonials = [
-    {
-      quote:
-        "The transition from standard marketing sites to Cyber Design House's 3D web platform gave us an immediate 40% uptick in qualified consultation leads. Their attention to design detail is unmatched.",
-      author: "Rajesh Murthy",
-      role: "Managing Director",
-      company: "Apex Tech Labs, Bangalore",
-    },
-    {
-      quote:
-        "Having worked with VoometDesign for our corporate architecture, bringing Cyber Design House in for our cross-platform mobile app was seamless. They shipped in 10 weeks with zero downtime.",
-      author: "Sneha Kapur",
-      role: "Product Lead",
-      company: "NovaPay India",
-    },
-  ];
-
   return (
     <div className="relative w-full">
-      {/* 1. Hero Section */}
+      {/* 1. Hero Section (Deep Navy overlay with 3D crystal) */}
       <HeroSection />
 
-      {/* 2. Intro Section */}
+      {/* 2. Intro Section (Warm off-white #fafaf8, two-tone H2, white cards) */}
       <IntroSection />
 
-      {/* 3. Services Pinned 3D Showcase */}
+      {/* 3. Services Pinned 3D Showcase (Cool off-white #f8fafc, filter pills) */}
       <PinnedServicesSection />
 
-      {/* 4. Process Section */}
+      {/* 4. Process Section (Warm off-white #fafaf8, 4 phase cards) */}
       <ProcessSection />
 
-      {/* 5. Why Cyber Design House */}
+      {/* 5. Why Cyber Design House (Cool off-white #f8fafc, 6 white cards) */}
       <WhyUsSection />
 
-      {/* 6. Selected Work */}
+      {/* 6. Selected Work (Warm off-white #fafaf8, concept demos) */}
       <SelectedWorkSection />
 
-      {/* 7. Technologies Section */}
-      <section className="py-24 sm:py-32 relative bg-[#090e17] overflow-hidden border-t border-white/5">
+      {/* 7. Technologies Section (Cool off-white #f8fafc, two-tone H2) */}
+      <section className="py-24 sm:py-32 relative bg-[#f8fafc] overflow-hidden border-t border-[#e5eaf2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-14">
-
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-              Tools we <span className="text-gradient-cyan">build with</span>.
+            <span className="text-[12px] uppercase tracking-[0.25em] text-[#6e7d9b] font-medium block mb-2">
+              Stack & Frameworks
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-semibold text-[#071633] tracking-tight leading-tight">
+              Tools we build with. <br />
+              <span className="font-light text-[#62748e]">Engineered for zero-latency execution.</span>
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-400">
-              Modern frontend runtimes, GPU-accelerated graphics libraries, and cloud infrastructure engineered for zero-latency execution.
+            <p className="mt-4 text-base sm:text-lg text-[#45556c] font-light">
+              Modern frontend runtimes, GPU-accelerated graphics libraries, and cloud infrastructure.
             </p>
           </div>
 
@@ -96,46 +80,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. Partner Endorsements & Testimonials */}
-      <section className="py-20 sm:py-28 relative bg-[#0b111c] overflow-hidden border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <span className="text-xs font-mono uppercase tracking-widest text-sky-400 block mb-2">
-              Client Feedback
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
-              Trusted by Bangalore Founders & Enterprise Partners
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonials.map((t, i) => (
-              <div
-                key={i}
-                className="glass-card p-8 rounded-3xl border border-white/10 relative flex flex-col justify-between"
-              >
-                <div>
-                  <Quote className="w-8 h-8 text-sky-400/40 mb-4" />
-                  <p className="text-slate-200 text-base leading-relaxed italic">
-                    "{t.quote}"
-                  </p>
-                </div>
-                <div className="mt-6 pt-4 border-t border-white/10">
-                  <p className="text-white font-bold text-sm">{t.author}</p>
-                  <p className="text-xs text-slate-400 font-mono mt-0.5">
-                    {t.role} · {t.company}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 9. FAQ Section */}
+      {/* 8. FAQ Section (Warm off-white #fafaf8, white bordered rows) */}
       <FaqSection />
 
-      {/* 10. Final CTA */}
+      {/* 9. Final CTA (Deep Navy card with white text & crystal) */}
       <FinalCtaSection />
     </div>
   );
