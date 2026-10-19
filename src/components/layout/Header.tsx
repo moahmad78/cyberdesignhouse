@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/components/brand/Logo";
 import { SERVICES } from "@/data/siteData";
-import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowRight, ArrowUpRight } from "lucide-react";
 
 export const Header: React.FC = () => {
   const pathname = usePathname();
@@ -145,6 +145,36 @@ export const Header: React.FC = () => {
               </div>
             </div>
 
+            {/* Influencers Network */}
+            <Link
+              href="/influencers"
+              className={`text-xs font-semibold uppercase tracking-[0.15em] transition-colors ${
+                isDarkHeader
+                  ? "text-slate-300 hover:text-white"
+                  : pathname === "/influencers"
+                  ? "text-[#071633] font-bold"
+                  : "text-[#45556c] hover:text-[#071633]"
+              }`}
+            >
+              Influencers
+            </Link>
+
+            {/* VoometDesign Luxury Interiors Portal Link */}
+            <a
+              href="https://voometdesign.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-xs font-semibold uppercase tracking-[0.15em] transition-colors flex items-center gap-1 px-2.5 py-1 rounded-full border ${
+                isDarkHeader
+                  ? "border-white/20 text-slate-200 hover:text-white hover:border-white/40 bg-white/5"
+                  : "border-[#e5eaf2] text-[#314158] hover:text-[#071633] hover:border-slate-300 bg-slate-50/70"
+              }`}
+              title="VoometDesign Luxury Interior Architecture"
+            >
+              <span>Voomet Interiors</span>
+              <ArrowUpRight className="w-3 h-3 opacity-70" />
+            </a>
+
             <Link
               href="/contact"
               className={`text-xs font-semibold uppercase tracking-[0.15em] transition-colors ${
@@ -222,6 +252,28 @@ export const Header: React.FC = () => {
               </div>
             </div>
             <Link
+              href="/influencers"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between text-2xl font-bold text-[#071633] py-2 border-b border-slate-100"
+            >
+              <span>Influencers</span>
+              <span className="text-xs font-mono font-normal text-blue-600 px-2.5 py-0.5 rounded-full bg-blue-50">
+                Reels Network
+              </span>
+            </Link>
+            <a
+              href="https://voometdesign.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between text-2xl font-bold text-[#071633] py-2 border-b border-slate-100"
+            >
+              <span>Voomet Interiors</span>
+              <span className="text-xs font-mono font-normal text-slate-500 flex items-center gap-1">
+                voometdesign.com <ArrowUpRight className="w-3.5 h-3.5" />
+              </span>
+            </a>
+            <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
               className="block text-2xl font-bold text-[#071633] py-2 border-b border-slate-100"
@@ -241,7 +293,7 @@ export const Header: React.FC = () => {
         </div>
 
         <div className="pt-6 border-t border-slate-100 text-xs text-[#6e7d9b]">
-          A VoometDesign company · Bangalore, India
+          Cyber Design House · Bangalore Studio
         </div>
       </div>
     </>

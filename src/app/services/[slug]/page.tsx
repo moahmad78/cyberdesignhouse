@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   };
 }
 
-export default async function ServiceDetailPage({ params }: ServicePageProps) {
+async function ServiceDetailContent({ params }: ServicePageProps) {
   const { slug } = await params;
   const service = SERVICES.find((s) => s.slug === slug);
   if (!service) notFound();
@@ -465,5 +465,22 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function ServiceDetailPage({ params }: ServicePageProps) {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#fafaf8] pt-36 pb-20 flex flex-col items-center justify-center">
+          <div className="w-10 h-10 rounded-full border-2 border-[#071633] border-t-transparent animate-spin mb-4" />
+          <p className="text-xs uppercase tracking-[0.2em] text-[#6e7d9b] font-bold">
+            Loading Specification...
+          </p>
+        </div>
+      }
+    >
+      <ServiceDetailContent params={params} />
+    </Suspense>
   );
 }

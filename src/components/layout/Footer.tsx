@@ -79,9 +79,26 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/influencers" className="text-slate-400 hover:text-white transition-colors flex items-center justify-between">
+                  <span>Influencers Network</span>
+                  <span className="text-[10px] font-mono text-sky-400 bg-sky-950/60 px-1.5 py-0.5 rounded border border-sky-800/40">New</span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="text-slate-400 hover:text-white transition-colors">
                   Contact & Consultation
                 </Link>
+              </li>
+              <li>
+                <a
+                  href={SITE_METADATA.parentUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-400 hover:text-white transition-colors flex items-center gap-1.5"
+                >
+                  <span>VoometDesign Interiors</span>
+                  <ExternalLink className="w-3 h-3 text-sky-400" />
+                </a>
               </li>
               <li>
                 <Link href="/privacy-policy" className="text-slate-400 hover:text-white transition-colors">
@@ -92,17 +109,6 @@ export const Footer: React.FC = () => {
                 <Link href="/terms" className="text-slate-400 hover:text-white transition-colors">
                   Terms of Service
                 </Link>
-              </li>
-              <li>
-                <a
-                  href={SITE_METADATA.parentUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-white transition-colors flex items-center gap-1"
-                >
-                  VoometDesign Parent
-                  <ExternalLink className="w-3 h-3 text-sky-400" />
-                </a>
               </li>
             </ul>
           </div>
@@ -146,7 +152,7 @@ export const Footer: React.FC = () => {
           <p>© 2026 Cyber Design House. All rights reserved.</p>
 
           <p className="flex items-center gap-1.5">
-            <span>A</span>
+            <span>Powered by</span>
             <a
               href={SITE_METADATA.parentUrl}
               target="_blank"
@@ -155,7 +161,7 @@ export const Footer: React.FC = () => {
             >
               VoometDesign
             </a>
-            <span>company (Est. 2010).</span>
+            <span>Group.</span>
           </p>
 
           <div className="flex items-center gap-6">
