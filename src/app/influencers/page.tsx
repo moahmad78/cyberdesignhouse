@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 
 export default function InfluencersPage() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("All Creators");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All Talent");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   // Onboarding Form State
@@ -33,7 +33,7 @@ export default function InfluencersPage() {
     name: "",
     handle: "",
     platform: "Instagram Reels",
-    category: "Tech & AI",
+    category: "Video Editors",
     followers: "",
     avgViews: "",
     email: "",
@@ -47,11 +47,14 @@ export default function InfluencersPage() {
 
   const filteredInfluencers = INFLUENCERS_LIST.filter((inf) => {
     const matchesCategory =
-      selectedCategory === "All Creators" || inf.category === selectedCategory;
+      selectedCategory === "All Talent" ||
+      selectedCategory === "All Creators" ||
+      inf.category === selectedCategory;
     const matchesSearch =
       inf.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       inf.handle.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      inf.niche.toLowerCase().includes(searchQuery.toLowerCase());
+      inf.niche.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (inf.roleTitle && inf.roleTitle.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
 
@@ -126,17 +129,17 @@ export default function InfluencersPage() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeader
-            caption="CREATOR NETWORK & REELS"
-            titleLine1="Find Top Influencers."
-            titleLine2="Drive Millions of Reel Views."
-            description="Collaborate with vetted creators across tech, software architectures, luxury interiors, and modern design. Hire verified creators or apply to join our creator roster."
+            caption="CREATORS, EDITORS & DESIGNERS"
+            titleLine1="Find Top Influencers & Talent."
+            titleLine2="Video Editors, Designers & Creators."
+            description="Collaborate with verified creators, viral short-form video editors, and brand graphic designers. Hire proven talent for reels, thumbnail kits, branding, and full marketing campaigns."
           >
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               <a
                 href="#find-creators"
                 className="h-[48px] px-6 rounded-full bg-[#071633] hover:bg-[#0f172a] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm"
               >
-                <span>Find Creators</span>
+                <span>Find Talent</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
 
@@ -144,7 +147,7 @@ export default function InfluencersPage() {
                 href="#join-network"
                 className="h-[48px] px-6 rounded-full bg-white hover:bg-slate-50 text-[#071633] border border-[#e5eaf2] font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
               >
-                <span>Join as Creator</span>
+                <span>Join as Creator / Editor</span>
               </a>
             </div>
           </SectionHeader>
@@ -158,7 +161,7 @@ export default function InfluencersPage() {
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-[#071633]">1.8M+</div>
-                  <div className="text-xs uppercase tracking-wider text-[#6e7d9b] font-medium">Total Reach</div>
+                  <div className="text-xs uppercase tracking-wider text-[#6e7d9b] font-medium">Creator Reach</div>
                 </div>
               </div>
             </div>
@@ -166,11 +169,11 @@ export default function InfluencersPage() {
             <div className="light-card p-6 rounded-[24px] bg-white border border-[#e5eaf2]">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-2xl bg-[#f8fafc] border border-[#e5eaf2] flex items-center justify-center text-[#071633]">
-                  <Eye className="w-5 h-5" />
+                  <Sparkles className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-[#071633]">3.4M+</div>
-                  <div className="text-xs uppercase tracking-wider text-[#6e7d9b] font-medium">Monthly Views</div>
+                  <div className="text-2xl font-bold text-[#071633]">10+ Vetted</div>
+                  <div className="text-xs uppercase tracking-wider text-[#6e7d9b] font-medium">Editors & Designers</div>
                 </div>
               </div>
             </div>
@@ -285,9 +288,16 @@ export default function InfluencersPage() {
                         <p className="text-xs font-mono text-[#6e7d9b] font-medium truncate">
                           {inf.handle}
                         </p>
-                        <span className="inline-block mt-1.5 px-2.5 py-0.5 rounded-full bg-[#f8fafc] border border-[#e5eaf2] text-[11px] font-semibold text-[#071633]">
-                          {inf.badge}
-                        </span>
+                        <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
+                          {inf.roleTitle && (
+                            <span className="px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-[10px] font-semibold text-blue-700">
+                              {inf.roleTitle}
+                            </span>
+                          )}
+                          <span className="px-2.5 py-0.5 rounded-full bg-[#f8fafc] border border-[#e5eaf2] text-[10px] font-medium text-[#45556c]">
+                            {inf.badge}
+                          </span>
+                        </div>
                       </div>
                     </div>
 
@@ -300,13 +310,13 @@ export default function InfluencersPage() {
                       <div>
                         <div className="text-sm font-bold text-[#071633]">{inf.followers}</div>
                         <div className="text-[10px] uppercase tracking-wider text-[#6e7d9b] font-medium mt-0.5">
-                          Followers
+                          Followers / Reach
                         </div>
                       </div>
                       <div className="border-x border-slate-200">
                         <div className="text-sm font-bold text-[#071633]">{inf.avgReelViews}</div>
                         <div className="text-[10px] uppercase tracking-wider text-[#6e7d9b] font-medium mt-0.5">
-                          Reel Views
+                          Avg Views / Impr
                         </div>
                       </div>
                       <div>
@@ -352,13 +362,21 @@ export default function InfluencersPage() {
                   {/* Card Bottom CTA */}
                   <div className="pt-4 border-t border-slate-100 flex items-center gap-3">
                     <a
-                      href={`https://wa.me/919845014279?text=${whatsappCollabMsg}`}
+                      href={`https://wa.me/919845014279?text=${encodeURIComponent(
+                        `Hi Cyber Design House! I want to hire ${inf.name} (${inf.roleTitle || inf.category}) for our upcoming project.`
+                      )}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1 h-[44px] rounded-full bg-[#071633] hover:bg-[#0f172a] text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all shadow-sm"
                     >
                       <MessageCircle className="w-3.5 h-3.5" />
-                      <span>Hire For Reel</span>
+                      <span>
+                        {inf.category === "Video Editors"
+                          ? "Hire Editor"
+                          : inf.category === "Graphic Designers"
+                          ? "Hire Designer"
+                          : "Hire for Reel"}
+                      </span>
                     </a>
 
                     <Link
@@ -486,30 +504,32 @@ export default function InfluencersPage() {
 
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[#314158] font-semibold mb-2">
-                        Primary Niche
+                        Role / Specialty
                       </label>
                       <select
                         value={formState.category}
                         onChange={(e) => setFormState({ ...formState, category: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-[#f8fafc] border border-[#e5eaf2] focus:border-[#071633] focus:bg-white text-[#071633] text-sm transition-all outline-none cursor-pointer"
                       >
-                        <option value="Tech & AI">Tech & AI</option>
-                        <option value="Interior & Architecture">Interior & Architecture</option>
-                        <option value="SaaS & Startups">SaaS & Startups</option>
-                        <option value="3D & Design">3D & Design</option>
-                        <option value="Lifestyle & Growth">Lifestyle & Growth</option>
+                        <option value="Video Editors">Video Editor (Reels, Long-Form, VFX)</option>
+                        <option value="Graphic Designers">Graphic Designer (Thumbnails, Branding)</option>
+                        <option value="Tech & AI">Tech & AI Creator</option>
+                        <option value="Interior & Architecture">Interior & Architecture Creator</option>
+                        <option value="SaaS & Startups">SaaS & Startups Creator</option>
+                        <option value="3D & Design">3D & Motion Artist</option>
+                        <option value="Lifestyle & Growth">Lifestyle & Growth Creator</option>
                       </select>
                     </div>
 
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[#314158] font-semibold mb-2">
-                        Total Followers
+                        Total Followers / Reach
                       </label>
                       <input
                         type="text"
                         value={formState.followers}
                         onChange={(e) => setFormState({ ...formState, followers: e.target.value })}
-                        placeholder="e.g. 50K+, 200K"
+                        placeholder="e.g. 50K+, 200K or Portfolio"
                         className="w-full px-4 py-3 rounded-xl bg-[#f8fafc] border border-[#e5eaf2] focus:border-[#071633] focus:bg-white text-[#071633] placeholder-slate-400 text-sm transition-all outline-none"
                       />
                     </div>
@@ -547,13 +567,13 @@ export default function InfluencersPage() {
 
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-[#314158] font-semibold mb-2">
-                      Sample Reel Link / Best Collaboration Video
+                      Portfolio / Showreel / Sample Work Link
                     </label>
                     <input
                       type="url"
                       value={formState.sampleReel}
                       onChange={(e) => setFormState({ ...formState, sampleReel: e.target.value })}
-                      placeholder="https://www.instagram.com/reel/..."
+                      placeholder="https://behance.net/..., youtube.com/..., or instagram.com/..."
                       className="w-full px-4 py-3 rounded-xl bg-[#f8fafc] border border-[#e5eaf2] focus:border-[#071633] focus:bg-white text-[#071633] placeholder-slate-400 text-sm transition-all outline-none"
                     />
                   </div>

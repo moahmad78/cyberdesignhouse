@@ -60,13 +60,13 @@ export const SERVICES: ServiceData[] = [
     heroSubheading: "Collaborate with verified tech, luxury interior, SaaS, and lifestyle creators. Verified audience engagement, transparent rates, and end-to-end viral reel production.",
     oneLine: "Creator profiles, rates, audience details aur campaign booking.",
     bullets: [
-      "Vetted creator profiles with verified metrics",
-      "Transparent creator rates & deliverables",
+      "Vetted creator profiles & verified audience metrics",
+      "High-retention video editing & graphic design kits",
       "Viral video reels & end-to-end campaign booking"
     ],
     overview: [
-      "Modern buyers don't trust faceless corporate ads—they trust creators who build in public, review real products, and command engaged communities. Our Influencer Marketing service gives your brand immediate access to our verified creator network.",
-      "We manage everything: audience vetting, rate negotiations, script angles, 4K reel filming, and collaborative co-author distribution with paid ad boosting for guaranteed viral reach and inbound enquiries."
+      "Modern buyers don't trust faceless corporate ads—they trust creators who build in public, review real products, and command engaged communities. Alongside verified influencers, our in-house creative production studio delivers elite video editing and high-CTR graphic design.",
+      "We manage the full creative stack: influencer matchmaking, script angles, professional 4K filming, dynamic reel editing with sound design, thumbnail & graphic asset production, and paid ad boosting for guaranteed viral reach."
     ],
     offerings: [
       {
@@ -74,16 +74,16 @@ export const SERVICES: ServiceData[] = [
         description: "Direct access to our curated roster of creators across Tech & AI, Interior Design, SaaS, and Modern Growth with authentic engagement."
       },
       {
+        title: "Elite Short-Form Video Editing",
+        description: "High-retention reel edits, dynamic captions, sound design, B-roll pacing, and motion graphics tailored for Instagram & YouTube Shorts."
+      },
+      {
+        title: "High-CTR Graphic & Brand Design",
+        description: "Eye-catching YouTube thumbnails, social carousel decks, banner ads, and luxury visual collateral that convert viewers into clients."
+      },
+      {
         title: "Transparent Rate Cards & Booking",
-        description: "Clear per-reel pricing, story packages, and usage rights without hidden agency markups or confusing terms."
-      },
-      {
-        title: "Short-Form Video & Reel Production",
-        description: "Engaging 9:16 vertical video concepts, hook-driven scripts, high-production filming, and conversion-optimized edits."
-      },
-      {
-        title: "Audience Demographics & Audit",
-        description: "Deep audience analysis ensuring 85%+ genuine regional followers, target age groups, and real comment engagement."
+        description: "Clear per-reel pricing, video editing packages, and commercial usage rights without hidden agency markups."
       },
       {
         title: "Co-Author Collaborative Publishing",
