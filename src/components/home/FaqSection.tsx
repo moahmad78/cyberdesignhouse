@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { HOME_FAQS } from "@/data/siteData";
 import { ChevronDown } from "lucide-react";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export const FaqSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -25,7 +26,7 @@ export const FaqSection: React.FC = () => {
   };
 
   return (
-    <section className="py-24 sm:py-32 relative bg-[#fafaf8] overflow-hidden border-t border-[#e5eaf2]">
+    <section className="py-20 sm:py-28 relative bg-[#fafaf8] overflow-hidden border-t border-[#e5eaf2]">
       {/* Inject FAQPage Schema */}
       <script
         type="application/ld+json"
@@ -33,19 +34,14 @@ export const FaqSection: React.FC = () => {
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header: Caption label, Two-tone H2 (PRD 3.6) */}
-        <div className="text-center mb-16">
-          <span className="text-[12px] uppercase tracking-[0.25em] text-[#6e7d9b] font-medium block mb-2">
-            Clarifications
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-semibold text-[#071633] tracking-tight leading-tight">
-            Frequently Asked Questions. <br />
-            <span className="font-light text-[#62748e]">Clear terms and transparent answers.</span>
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#45556c] font-light">
-            Direct details regarding scopes, delivery timelines, code ownership, and ongoing technical support.
-          </p>
-        </div>
+        {/* VoometDesign Section Header: Centered */}
+        <SectionHeader
+          caption="CLARIFICATIONS"
+          titleLine1="Frequently Asked Questions"
+          titleLine2="Clear Terms & Honest Scopes"
+          description="Direct details regarding project timelines, full IP ownership, technology selection, and long-term production maintenance."
+          centered
+        />
 
         {/* FAQ: rounded bordered rows with chevron that turns navy when open (PRD 3.6) */}
         <div className="space-y-3.5">
@@ -54,14 +50,14 @@ export const FaqSection: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="rounded-2xl bg-white border border-[#e5eaf2] transition-all overflow-hidden shadow-sm"
+                className="rounded-[20px] bg-white border border-[#e5eaf2] transition-all overflow-hidden shadow-sm hover:border-slate-300"
               >
                 <button
                   onClick={() => toggle(idx)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none"
+                  className="w-full p-6 sm:p-7 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base sm:text-lg font-semibold text-[#071633]">
+                  <span className="text-base sm:text-lg font-bold text-[#071633] tracking-tight">
                     {faq.question}
                   </span>
                   <div
@@ -71,16 +67,16 @@ export const FaqSection: React.FC = () => {
                         : "bg-[#f8fafc] border border-[#e5eaf2] text-[#45556c]"
                     }`}
                   >
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className="w-4 h-4 stroke-[2.5]" />
                   </div>
                 </button>
 
                 <div
-                  className={`transition-all duration-300 ease-in-out px-6 ${
-                    isOpen ? "max-h-96 pb-6 opacity-100" : "max-h-0 pb-0 opacity-0 pointer-events-none"
+                  className={`transition-all duration-300 ease-in-out px-6 sm:px-7 ${
+                    isOpen ? "max-h-96 pb-6 sm:pb-7 opacity-100" : "max-h-0 pb-0 opacity-0 pointer-events-none"
                   }`}
                 >
-                  <p className="text-sm sm:text-base text-[#45556c] font-light leading-relaxed border-t border-slate-100 pt-4">
+                  <p className="text-[14px] sm:text-[15px] text-[#45556c] font-light leading-relaxed border-t border-slate-100 pt-4">
                     {faq.answer}
                   </p>
                 </div>

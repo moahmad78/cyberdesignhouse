@@ -105,24 +105,24 @@ export default function ContactPage() {
   return (
     <div className="relative pt-24 pb-20 overflow-hidden min-h-screen bg-[#fafaf8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Page Header (Caption label, Two-tone H2 - PRD 3.6 & 6.3) */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-[12px] uppercase tracking-[0.25em] text-[#6e7d9b] font-medium block mb-2">
-            Consultation & Enquiries
+        {/* VoometDesign Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <span className="text-[11px] sm:text-[12px] md:text-[13px] uppercase tracking-[0.2em] md:tracking-[0.25em] font-bold text-[#6E7D9B] mb-2 sm:mb-3 block">
+            CONSULTATION & ENQUIRIES
           </span>
-          <h1 className="text-4xl sm:text-6xl font-semibold text-[#071633] tracking-tight leading-tight">
-            Let's build something <br />
-            <span className="font-light text-[#62748e]">great together.</span>
+          <h1 className="text-[#071633] text-[clamp(34px,4vw,56px)] font-bold tracking-tight leading-[1.04]">
+            Let's Build Something <br />
+            <span className="text-slate-500 font-light">Great Together.</span>
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-[#45556c] font-light">
-            Tell us about your upcoming project or goals. We reply within one business day with clear timelines and recommendations.
+          <p className="mt-4 text-[15px] sm:text-[16px] text-[#45556c] font-light max-w-xl mx-auto leading-relaxed">
+            Tell us about your upcoming project or goals. We review all technical requirements and reply within one business day with clear timelines.
           </p>
         </div>
 
         {/* 2-Column Layout (Section 6.3) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Left Column: Form on White Card (PRD 3.2 & 3.6) */}
-          <div className="lg:col-span-7 bg-white p-6 sm:p-10 rounded-3xl border border-[#e5eaf2] shadow-sm">
+          <div className="lg:col-span-7 bg-white p-7 sm:p-10 rounded-[28px] border border-[#e5eaf2] shadow-sm">
             {status === "success" ? (
               <div className="text-center py-12 space-y-4">
                 <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto mb-6">
@@ -342,12 +342,12 @@ export default function ContactPage() {
 
           {/* Right Column: Contact Card, WhatsApp, Map (PRD 6.3) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white p-8 rounded-3xl border border-[#e5eaf2] shadow-sm space-y-6">
+            <div className="bg-white p-8 sm:p-9 rounded-[28px] border border-[#e5eaf2] shadow-sm space-y-6">
               <div>
-                <span className="text-[12px] uppercase tracking-[0.25em] text-[#6e7d9b] font-medium block mb-1">
-                  Bangalore Studio
+                <span className="text-[11px] uppercase tracking-[0.2em] text-[#6e7d9b] font-bold block mb-1">
+                  BANGALORE STUDIO
                 </span>
-                <h2 className="text-2xl font-semibold text-[#071633]">Direct Contacts</h2>
+                <h2 className="text-2xl font-bold text-[#071633] tracking-tight">Direct Contacts</h2>
                 <p className="text-xs text-[#62748e] mt-1">
                   Technology Arm of VoometDesign (Established 2010)
                 </p>

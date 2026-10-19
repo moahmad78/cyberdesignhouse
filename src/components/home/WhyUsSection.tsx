@@ -8,6 +8,7 @@ import {
   MessageSquare,
   LifeBuoy,
 } from "lucide-react";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export const WhyUsSection: React.FC = () => {
   const icons = [
@@ -20,46 +21,48 @@ export const WhyUsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 sm:py-32 relative bg-[#f8fafc] overflow-hidden border-t border-[#e5eaf2]">
+    <section className="py-20 sm:py-28 relative bg-[#f8fafc] overflow-hidden border-t border-[#e5eaf2]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header: Caption label, Two-tone H2 (PRD 3.6) */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-[12px] uppercase tracking-[0.25em] text-[#6e7d9b] font-medium block mb-2">
-            The Advantage
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-semibold text-[#071633] tracking-tight leading-tight">
-            Why Cyber Design House. <br />
-            <span className="font-light text-[#62748e]">Aesthetics meet engineering rigor.</span>
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#45556c] font-light">
-            We operate at the exact intersection of visionary design and uncompromising technical execution.
-          </p>
-        </div>
+        {/* VoometDesign Section Header: Centered */}
+        <SectionHeader
+          caption="THE ADVANTAGE"
+          titleLine1="Why Cyber Design House"
+          titleLine2="Precision Meets Performance"
+          description="We combine the meticulous turnkey execution of VoometDesign with deep engineering expertise to deliver software that drives business growth."
+          centered
+        />
 
-        {/* 6 Cards Grid (White cards, thin light border, soft shadow - PRD 3.6) */}
+        {/* 6 Cards Grid (VoometDesign Card Style) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {WHY_CHOOSE_US_CARDS.map((card, idx) => (
             <div
               key={card.title}
-              className="light-card p-8 rounded-2xl bg-white border border-[#e5eaf2] flex flex-col justify-between"
+              className="light-card p-7 sm:p-8 rounded-[24px] bg-white border border-[#e5eaf2] flex flex-col justify-between"
             >
               <div>
-                <div className="w-11 h-11 rounded-xl bg-[#f8fafc] border border-[#e5eaf2] flex items-center justify-center mb-6">
-                  {icons[idx]}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-12 h-12 rounded-2xl bg-[#f8fafc] border border-[#e5eaf2] flex items-center justify-center text-[#071633]">
+                    {icons[idx]}
+                  </div>
+                  <span className="font-mono text-xs font-bold text-[#6e7d9b]">
+                    0{idx + 1}
+                  </span>
                 </div>
 
-                <h3 className="text-lg font-semibold text-[#071633]">
+                <h3 className="text-lg font-bold text-[#071633] tracking-tight">
                   {card.title}
                 </h3>
-                <p className="text-xs text-[#62748e] mt-1 mb-3 font-normal">{card.tagline}</p>
-                <p className="text-sm text-[#45556c] font-light leading-relaxed">
+                <p className="text-xs text-[#62748e] mt-1 mb-3 font-semibold uppercase tracking-wider">
+                  {card.tagline}
+                </p>
+                <p className="text-[14px] text-[#45556c] font-light leading-relaxed">
                   {card.description}
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#6e7d9b] font-medium">
-                <span>0{idx + 1}</span>
-                <span>Standard Delivery</span>
+              <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#6e7d9b] font-semibold uppercase tracking-wider">
+                <span>Core Guarantee</span>
+                <span className="text-[#071633] font-bold">Standard</span>
               </div>
             </div>
           ))}

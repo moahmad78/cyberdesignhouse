@@ -9,6 +9,7 @@ import { SelectedWorkSection } from "@/components/home/SelectedWorkSection";
 import { TechOrbitScene } from "@/components/3d/TechOrbitScene";
 import { FaqSection } from "@/components/home/FaqSection";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export const metadata: Metadata = {
   title: "Cyber Design House | 3D Web, App & Digital Growth by VoometDesign",
@@ -63,18 +64,13 @@ export default function HomePage() {
       {/* 7. Technologies Section (Cool off-white #f8fafc, two-tone H2) */}
       <section className="py-24 sm:py-32 relative bg-[#f8fafc] overflow-hidden border-t border-[#e5eaf2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-[12px] uppercase tracking-[0.25em] text-[#6e7d9b] font-medium block mb-2">
-              Stack & Frameworks
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-semibold text-[#071633] tracking-tight leading-tight">
-              Tools we build with. <br />
-              <span className="font-light text-[#62748e]">Engineered for zero-latency execution.</span>
-            </h2>
-            <p className="mt-4 text-base sm:text-lg text-[#45556c] font-light">
-              Modern frontend runtimes, GPU-accelerated graphics libraries, and cloud infrastructure.
-            </p>
-          </div>
+          <SectionHeader
+            caption="STACK & FRAMEWORKS"
+            titleLine1="Tools We Build With"
+            titleLine2="Engineered for Performance"
+            description="Modern frontend runtimes, GPU-accelerated graphics libraries, cross-platform mobile frameworks, and high-availability cloud infrastructure."
+            centered
+          />
 
           <TechOrbitScene />
         </div>

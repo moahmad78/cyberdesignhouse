@@ -1,6 +1,8 @@
 import React from "react";
 import { HOW_WE_WORK_STEPS } from "@/data/siteData";
-import { Compass, Palette, Code2, Rocket } from "lucide-react";
+import { Compass, Palette, Code2, Rocket, ArrowRight } from "lucide-react";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import Link from "next/link";
 
 export const ProcessSection: React.FC = () => {
   const stepIcons = [
@@ -11,54 +13,64 @@ export const ProcessSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 sm:py-32 relative bg-[#fafaf8] overflow-hidden border-t border-[#e5eaf2]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header: Caption label, Two-tone H2 (PRD 3.6) */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="text-[12px] uppercase tracking-[0.25em] text-[#6e7d9b] font-medium block mb-2">
-            Methodology
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-semibold text-[#071633] tracking-tight leading-tight">
-            How we work. <br />
-            <span className="font-light text-[#62748e]">From discovery to ongoing scale.</span>
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#45556c] font-light">
-            A structured 4-step delivery pipeline engineered to eliminate ambiguity and deliver measurable outcomes on schedule.
-          </p>
-        </div>
+    <section className="py-20 sm:py-28 relative bg-[#fafaf8] overflow-hidden border-t border-[#e5eaf2]">
+      {/* Architectural Grid Background */}
+      <div className="absolute inset-0 bg-architectural-grid pointer-events-none opacity-40" />
 
-        {/* 4 Process Cards */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* VoometDesign Section Header: Centered */}
+        <SectionHeader
+          caption="HOW WE WORK"
+          titleLine1="From Concept to Scale"
+          titleLine2="Structured 4-Phase Delivery"
+          description="A disciplined delivery pipeline engineered to eliminate ambiguity, enforce high code standards, and ensure predictable production deployments."
+          centered
+        />
+
+        {/* 4 Process Cards with VoometDesign card styling */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {HOW_WE_WORK_STEPS.map((step, idx) => (
             <div
               key={step.step}
-              className="light-card p-6 sm:p-7 rounded-2xl bg-white border border-[#e5eaf2] flex flex-col justify-between"
+              className="light-card p-7 sm:p-8 rounded-[24px] bg-white border border-[#e5eaf2] flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-11 h-11 rounded-xl bg-[#f8fafc] border border-[#e5eaf2] flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-2xl bg-[#f8fafc] border border-[#e5eaf2] flex items-center justify-center">
                     {stepIcons[idx]}
                   </div>
-                  <span className="font-mono text-xs font-bold text-[#071633]">
-                    Phase {step.step}
+                  <span className="font-mono text-xs font-bold text-[#071633] px-2.5 py-1 rounded-full bg-[#f8fafc] border border-[#e5eaf2]">
+                    Phase 0{step.step}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-semibold text-[#071633] mb-1">
+                <h3 className="text-xl font-bold text-[#071633] tracking-tight mb-1">
                   {step.title}
                 </h3>
-                <p className="text-xs text-[#62748e] mb-3 font-normal">{step.tagline}</p>
-                <p className="text-sm text-[#45556c] font-light leading-relaxed">
+                <p className="text-xs text-[#62748e] mb-3 font-semibold uppercase tracking-wider">
+                  {step.tagline}
+                </p>
+                <p className="text-[14px] text-[#45556c] font-light leading-relaxed">
                   {step.description}
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#6e7d9b] font-medium">
-                <span>Verified Milestone</span>
-                <span>Sign-off</span>
+              <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#6e7d9b] font-semibold uppercase tracking-wider">
+                <span>Milestone Gate</span>
+                <span className="text-[#071633] font-bold">Sign-off ✓</span>
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-[#071633] hover:text-blue-600 transition-colors group"
+          >
+            <span>Schedule a sprint planning session for your project</span>
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
       </div>
     </section>
