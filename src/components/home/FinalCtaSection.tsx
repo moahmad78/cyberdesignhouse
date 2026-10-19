@@ -27,10 +27,7 @@ export const FinalCtaSection: React.FC = () => {
             />
           </div>
 
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-sky-400/30 text-sky-400 font-mono text-xs uppercase tracking-widest mb-6">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Ready for Q4 / 2027 Roadmaps</span>
-          </div>
+
 
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight max-w-3xl mx-auto">
             Have a project in mind? <br />

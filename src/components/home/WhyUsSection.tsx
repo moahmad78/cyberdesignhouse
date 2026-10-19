@@ -23,9 +23,7 @@ export const WhyUsSection: React.FC = () => {
     <section className="py-24 sm:py-32 relative bg-[#0b111c] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-sky-400/20 text-sky-400 font-mono text-xs uppercase tracking-widest mb-3">
-            <span>05 / Advantage</span>
-          </div>
+
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
             Why partner with <br className="hidden sm:inline" />
             <span className="text-gradient-cyan">Cyber Design House</span>?

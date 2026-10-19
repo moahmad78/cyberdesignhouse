@@ -24,9 +24,7 @@ export const IntroSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Heading & Heritage */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-sky-400/20 text-sky-400 font-mono text-xs uppercase tracking-widest">
-              <span>02 / The Philosophy</span>
-            </div>
+
 
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
               Technology with the precision of a{" "}

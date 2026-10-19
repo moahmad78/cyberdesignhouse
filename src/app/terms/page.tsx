@@ -22,10 +22,7 @@ export default function TermsPage() {
         </Link>
 
         <div className="mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-sky-400/20 text-sky-400 font-mono text-xs uppercase tracking-widest mb-3">
-            <FileText className="w-3.5 h-3.5" />
-            <span>Legal Agreement</span>
-          </div>
+
           <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
             Terms of Service
           </h1>

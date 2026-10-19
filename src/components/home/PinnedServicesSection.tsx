@@ -31,10 +31,8 @@ export const PinnedServicesSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-400/20 text-sky-400 font-mono text-xs uppercase tracking-widest mb-3">
-              <span>03 / Capabilities</span>
-            </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
               Four Core Disciplines. <br />
               <span className="text-gradient-cyan">One Cohesive Technology House.</span>

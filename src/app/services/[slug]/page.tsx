@@ -148,9 +148,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-sky-400/20 text-sky-400 font-mono text-xs uppercase tracking-widest">
-                <span>Discipline {service.number}</span>
-              </div>
+
 
               <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
                 {service.heroHeadline}

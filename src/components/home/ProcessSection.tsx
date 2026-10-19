@@ -14,9 +14,6 @@ export const ProcessSection: React.FC = () => {
     <section className="py-24 sm:py-32 relative bg-[#090e17] overflow-hidden border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-sky-400/20 text-sky-400 font-mono text-xs uppercase tracking-widest mb-3">
-            <span>04 / Methodology</span>
-          </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
             How we <span className="text-gradient-cyan">work</span>.
           </h2>
@@ -40,7 +37,7 @@ export const ProcessSection: React.FC = () => {
                   <div className="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700/80 flex items-center justify-center shadow-lg">
                     {stepIcons[idx]}
                   </div>
-                  <span className="font-mono text-xs font-bold text-sky-400 px-2.5 py-1 rounded-full bg-sky-500/10 border border-sky-500/20">
+                  <span className="font-mono text-sm font-bold text-sky-400">
                     Step {step.step}
                   </span>
                 </div>
