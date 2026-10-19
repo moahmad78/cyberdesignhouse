@@ -124,19 +124,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${outfit.variable} dark scroll-smooth`}
+      className={`${inter.variable} ${outfit.variable} scroll-smooth`}
     >
       <head>
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,600,500,400,300&display=swap"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
-      <body className="bg-[#0f172a] text-[#f8fafc] font-sans min-h-screen flex flex-col antialiased selection:bg-sky-500/30 selection:text-white">
+      <body className="bg-[#fafaf8] text-[#45556c] font-sans min-h-screen flex flex-col antialiased selection:bg-[#071633]/15 selection:text-[#071633]">
         {/* WCAG 2.1 AA Skip to Content Link (Section 9) */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-sky-500 focus:text-slate-950 focus:font-bold focus:rounded-lg focus:shadow-xl"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 px-4 py-2 bg-[#071633] text-white font-bold rounded-lg shadow-xl"
         >
           Skip to main content
         </a>
