@@ -3,7 +3,7 @@ export interface Influencer {
   name: string;
   handle: string;
   niche: string;
-  category: "Tech & AI" | "Interior & Architecture" | "SaaS & Startups" | "3D & Design" | "Video Editors" | "Graphic Designers" | "Lifestyle & Growth";
+  category: "Tech & AI" | "Interior & Architecture" | "SaaS & Startups" | "3D & Design" | "Video Editors" | "Graphic Designers" | "Content Writers" | "Lifestyle & Growth";
   roleTitle?: string;
   followers: string;
   avgReelViews: string;
@@ -187,12 +187,47 @@ export const INFLUENCERS_LIST: Influencer[] = [
     location: "Bangalore / Delhi",
     recentBrandCollabs: ["VoometDesign", "Saint-Gobain", "Jaquar"],
   },
+  {
+    id: "aditi-deshmukh",
+    name: "Aditi Deshmukh",
+    handle: "@aditi.writes",
+    niche: "Conversion Copywriting, SEO Content & Viral Reel Scripts",
+    category: "Content Writers",
+    roleTitle: "Lead Script & Copywriter",
+    followers: "95K+ Readers",
+    avgReelViews: "280K+ Impressions",
+    engagementRate: "8.9%",
+    platforms: ["LinkedIn", "Instagram"],
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
+    badge: "SEO & Script Specialist",
+    deliverables: ["Viral Reel Hook & Scriptwriting", "High-Converting Landing Page Copy", "Top-Ranking SEO Articles"],
+    location: "Bangalore, India",
+    recentBrandCollabs: ["VoometDesign", "Razorpay", "Swiggy"],
+  },
+  {
+    id: "karan-singhania",
+    name: "Karan Singhania",
+    handle: "@karancopy.io",
+    niche: "B2B Tech Thought Leadership, Founder Ghostwriting & Ad Copy",
+    category: "Content Writers",
+    roleTitle: "Senior B2B & Tech Copywriter",
+    followers: "110K+ Network",
+    avgReelViews: "340K+ Impressions",
+    engagementRate: "9.1%",
+    platforms: ["LinkedIn", "YouTube"],
+    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80",
+    badge: "B2B SaaS Messaging Lead",
+    deliverables: ["Founder Ghostwriting & LinkedIn Posts", "Email Lead Nurture Sequences", "Ad Copy & Video Angles"],
+    location: "Bangalore / Mumbai",
+    recentBrandCollabs: ["Cred", "Notion", "Postman"],
+  },
 ];
 
 export const INFLUENCER_CATEGORIES = [
   "All Talent",
   "Video Editors",
   "Graphic Designers",
+  "Content Writers",
   "Tech & AI",
   "Interior & Architecture",
   "SaaS & Startups",

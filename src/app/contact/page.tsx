@@ -39,6 +39,7 @@ export default function ContactPage() {
     "App Development",
     "SEO & Digital Marketing",
     "Video Editing & Graphic Design",
+    "Content Writing & Copywriting",
     "Other IT Consulting",
   ];
 

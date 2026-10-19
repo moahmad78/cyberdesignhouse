@@ -129,10 +129,10 @@ export default function InfluencersPage() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeader
-            caption="CREATORS, EDITORS & DESIGNERS"
+            caption="CREATORS, EDITORS, DESIGNERS & WRITERS"
             titleLine1="Find Top Influencers & Talent."
-            titleLine2="Video Editors, Designers & Creators."
-            description="Collaborate with verified creators, viral short-form video editors, and brand graphic designers. Hire proven talent for reels, thumbnail kits, branding, and full marketing campaigns."
+            titleLine2="Video Editors, Designers & Writers."
+            description="Collaborate with verified creators, viral short-form video editors, brand graphic designers, and conversion copywriters. Hire proven talent for reels, scripts, thumbnail kits, and full marketing campaigns."
           >
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               <a
@@ -375,6 +375,8 @@ export default function InfluencersPage() {
                           ? "Hire Editor"
                           : inf.category === "Graphic Designers"
                           ? "Hire Designer"
+                          : inf.category === "Content Writers"
+                          ? "Hire Writer"
                           : "Hire for Reel"}
                       </span>
                     </a>
@@ -513,6 +515,7 @@ export default function InfluencersPage() {
                       >
                         <option value="Video Editors">Video Editor (Reels, Long-Form, VFX)</option>
                         <option value="Graphic Designers">Graphic Designer (Thumbnails, Branding)</option>
+                        <option value="Content Writers">Content Writer & Scriptwriter (SEO, Scripts, Copy)</option>
                         <option value="Tech & AI">Tech & AI Creator</option>
                         <option value="Interior & Architecture">Interior & Architecture Creator</option>
                         <option value="SaaS & Startups">SaaS & Startups Creator</option>
