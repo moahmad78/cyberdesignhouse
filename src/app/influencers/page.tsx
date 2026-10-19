@@ -270,6 +270,7 @@ export default function InfluencersPage() {
                           alt={inf.name}
                           fill
                           sizes="64px"
+                          unoptimized
                           className="object-cover"
                         />
                       </div>
