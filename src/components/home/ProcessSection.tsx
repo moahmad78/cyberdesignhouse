@@ -18,13 +18,12 @@ export const ProcessSection: React.FC = () => {
       <div className="absolute inset-0 bg-architectural-grid pointer-events-none opacity-40" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* VoometDesign Section Header: Centered */}
+        {/* VoometDesign Section Header: Left-Right Split */}
         <SectionHeader
           caption="HOW WE WORK"
           titleLine1="From Concept to Scale"
           titleLine2="Structured 4-Phase Delivery"
           description="A disciplined delivery pipeline engineered to eliminate ambiguity, enforce high code standards, and ensure predictable production deployments."
-          centered
         />
 
         {/* 4 Process Cards with VoometDesign card styling */}

@@ -33,18 +33,17 @@ export const FaqSection: React.FC = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* VoometDesign Section Header: Centered */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* VoometDesign Section Header: Left-Right Split */}
         <SectionHeader
           caption="CLARIFICATIONS"
           titleLine1="Frequently Asked Questions"
           titleLine2="Clear Terms & Honest Scopes"
-          description="Direct details regarding project timelines, full IP ownership, technology selection, and long-term production maintenance."
-          centered
+          description="Direct details regarding project timelines, full IP ownership, technology selection, and long-term production maintenance plans."
         />
 
         {/* FAQ: rounded bordered rows with chevron that turns navy when open (PRD 3.6) */}
-        <div className="space-y-3.5">
+        <div className="max-w-4xl space-y-3.5">
           {HOME_FAQS.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (

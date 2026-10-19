@@ -69,7 +69,6 @@ export default function HomePage() {
             titleLine1="Tools We Build With"
             titleLine2="Engineered for Performance"
             description="Modern frontend runtimes, GPU-accelerated graphics libraries, cross-platform mobile frameworks, and high-availability cloud infrastructure."
-            centered
           />
 
           <TechOrbitScene />

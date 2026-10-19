@@ -9,6 +9,7 @@ import {
   Check,
   ChevronRight,
   HelpCircle,
+  MessageCircle,
 } from "lucide-react";
 import { ServiceHero3D } from "@/components/services/ServiceHero3D";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -188,14 +189,14 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* 2. Overview Section */}
+      {/* 2. Overview Section: Left-Right Split */}
       <section className="py-20 bg-white border-b border-[#e5eaf2]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             caption="THE ARCHITECTURE"
             titleLine1="Executive Overview"
             titleLine2="Precision Engineering Standards"
-            centered
+            description="End-to-end turnkey development managed by dedicated in-house engineers and interface designers in Bangalore."
           />
 
           <div className="space-y-6 text-[#45556c] font-light text-[15px] sm:text-[17px] leading-[1.85] bg-[#f8fafc] p-8 sm:p-10 rounded-[28px] border border-[#e5eaf2]">
@@ -206,15 +207,14 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* 3. What We Offer (VoometDesign Cards) */}
+      {/* 3. What We Offer: Left-Right Split */}
       <section className="py-20 lg:py-28 bg-[#fafaf8] border-b border-[#e5eaf2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             caption="CAPABILITIES"
-            titleLine1={`What We Offer in`}
+            titleLine1="What We Offer in"
             titleLine2={service.title}
-            description="Comprehensive turnkey offerings managed by our dedicated in-house team in Bangalore."
-            centered
+            description="Comprehensive turnkey offerings engineered for performance, security, and measurable conversion gains."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -236,15 +236,14 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* 4. Our Process (Service-Specific Steps) */}
+      {/* 4. Our Process: Left-Right Split */}
       <section className="py-20 lg:py-28 bg-white border-b border-[#e5eaf2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             caption="EXECUTION LIFECYCLE"
             titleLine1="Step-by-Step Delivery"
             titleLine2="Predictable Milestone Sign-offs"
-            description="Structured execution phases that eliminate uncertainty and keep stakeholders aligned."
-            centered
+            description="Structured execution phases that eliminate uncertainty, guarantee code quality, and keep stakeholders aligned."
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -266,7 +265,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* 5. Deliverables & Outcomes */}
+      {/* 5. Deliverables & Outcomes: Left-Right Split */}
       <section className="py-20 bg-[#fafaf8] border-b border-[#e5eaf2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -344,7 +343,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* 6. Related Work (if any) */}
+      {/* 6. Related Work: Left-Right Split */}
       {relatedProjects.length > 0 && (
         <section className="py-20 bg-white border-b border-[#e5eaf2]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -352,10 +351,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               caption="SELECTED WORK"
               titleLine1="Representative Projects"
               titleLine2={`In ${service.title}`}
-              centered
+              description="Demonstrations of performance standards, responsive engineering, and motion fidelity."
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl">
               {relatedProjects.map((project) => (
                 <div
                   key={project.title}
@@ -388,17 +387,17 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </section>
       )}
 
-      {/* 7. FAQs (VoometDesign Card Style) */}
+      {/* 7. FAQs: Left-Right Split */}
       <section className="py-20 bg-[#fafaf8] border-b border-[#e5eaf2]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             caption="CLARIFICATIONS"
             titleLine1="Common Questions"
             titleLine2={`About ${service.title}`}
-            centered
+            description="Clear details on development timelines, code ownership, tech stacks, and warranty support."
           />
 
-          <div className="space-y-4">
+          <div className="max-w-4xl space-y-4">
             {service.faqs.map((faq, idx) => (
               <div
                 key={idx}
@@ -423,40 +422,45 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* 8. Bottom CTA */}
-      <section className="py-20 sm:py-24 bg-[#071633] text-center text-white relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <span className="text-[11px] sm:text-[12px] md:text-[13px] uppercase tracking-[0.25em] text-slate-300 font-bold block mb-4">
-            START YOUR PROJECT
-          </span>
+      {/* 8. Bottom CTA: Left-Right Split Banner */}
+      <section className="py-20 sm:py-24 bg-[#071633] text-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-7 space-y-3">
+              <span className="text-[11px] sm:text-[12px] md:text-[13px] uppercase tracking-[0.25em] text-slate-300 font-bold block">
+                START YOUR PROJECT
+              </span>
 
-          <h2 className="text-[clamp(32px,4vw,52px)] font-bold text-white tracking-tight leading-tight">
-            Ready to Build Your {service.title}?
-          </h2>
+              <h2 className="text-[clamp(32px,4vw,52px)] font-bold text-white tracking-tight leading-tight">
+                Ready to Build Your {service.title}?
+              </h2>
 
-          <p className="mt-4 text-[16px] sm:text-[17px] text-slate-300 font-light max-w-xl mx-auto leading-relaxed">
-            Schedule a technical discovery session with our senior engineers in Bangalore.
-          </p>
+              <p className="text-[16px] sm:text-[17px] text-slate-300 font-light max-w-xl leading-relaxed pt-1">
+                Schedule a technical discovery session with our senior engineers and product designers in Bangalore.
+              </p>
+            </div>
 
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/contact"
-              className="w-full sm:w-auto h-[52px] px-8 rounded-full bg-white text-[#071633] font-bold text-xs uppercase tracking-wider shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
-            >
-              <span>Book Free Consultation</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-center gap-3">
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto lg:w-64 h-[52px] px-8 rounded-full bg-white text-[#071633] font-bold text-xs uppercase tracking-wider shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
+              >
+                <span>Book Consultation</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
 
-            <a
-              href={`https://wa.me/919845014279?text=${encodeURIComponent(
-                `Hello Cyber Design House! I want to discuss a new ${service.title} project.`
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto h-[52px] px-7 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2"
-            >
-              <span>WhatsApp Direct</span>
-            </a>
+              <a
+                href={`https://wa.me/919845014279?text=${encodeURIComponent(
+                  `Hello Cyber Design House! I want to discuss a new ${service.title} project.`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto lg:w-64 h-[52px] px-7 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+              >
+                <MessageCircle className="w-4 h-4 fill-current" />
+                <span>WhatsApp Direct</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>

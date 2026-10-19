@@ -15,6 +15,7 @@ import {
   Send,
   Loader2,
 } from "lucide-react";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -105,19 +106,13 @@ export default function ContactPage() {
   return (
     <div className="relative pt-24 pb-20 overflow-hidden min-h-screen bg-[#fafaf8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* VoometDesign Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-[11px] sm:text-[12px] md:text-[13px] uppercase tracking-[0.2em] md:tracking-[0.25em] font-bold text-[#6E7D9B] mb-2 sm:mb-3 block">
-            CONSULTATION & ENQUIRIES
-          </span>
-          <h1 className="text-[#071633] text-[clamp(34px,4vw,56px)] font-bold tracking-tight leading-[1.04]">
-            Let's Build Something <br />
-            <span className="text-slate-500 font-light">Great Together.</span>
-          </h1>
-          <p className="mt-4 text-[15px] sm:text-[16px] text-[#45556c] font-light max-w-xl mx-auto leading-relaxed">
-            Tell us about your upcoming project or goals. We review all technical requirements and reply within one business day with clear timelines.
-          </p>
-        </div>
+        {/* VoometDesign Section Header: Left-Right Split */}
+        <SectionHeader
+          caption="CONSULTATION & ENQUIRIES"
+          titleLine1="Let's Build Something"
+          titleLine2="Great Together."
+          description="Tell us about your upcoming project, scope, or timeline goals. Our Bangalore engineering lead reviews all requirements and responds within one business day."
+        />
 
         {/* 2-Column Layout (Section 6.3) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">

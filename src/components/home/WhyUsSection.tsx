@@ -23,13 +23,12 @@ export const WhyUsSection: React.FC = () => {
   return (
     <section className="py-20 sm:py-28 relative bg-[#f8fafc] overflow-hidden border-t border-[#e5eaf2]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* VoometDesign Section Header: Centered */}
+        {/* VoometDesign Section Header: Left-Right Split */}
         <SectionHeader
           caption="THE ADVANTAGE"
           titleLine1="Why Cyber Design House"
           titleLine2="Precision Meets Performance"
           description="We combine the meticulous turnkey execution of VoometDesign with deep engineering expertise to deliver software that drives business growth."
-          centered
         />
 
         {/* 6 Cards Grid (VoometDesign Card Style) */}
