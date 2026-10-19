@@ -37,7 +37,7 @@ export const FinalCtaSection: React.FC = () => {
               </h2>
 
               <p className="text-[15px] sm:text-[17px] text-slate-300 font-light max-w-xl leading-relaxed pt-2">
-                Whether you need a high-performance web platform, an enterprise mobile application, or technical SEO that drives real leads in Bangalore, our engineering team is ready.
+                Whether you need a high-performance web platform, an enterprise mobile application, creator video campaigns, or integrated SEO & digital marketing that drives real leads, our team is ready.
               </p>
             </div>
 

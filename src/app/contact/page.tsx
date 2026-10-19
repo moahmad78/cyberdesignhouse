@@ -34,10 +34,11 @@ export default function ContactPage() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const availableServices = [
-    "Web Development",
+    "Influencer Marketing",
+    "Website Development",
     "App Development",
-    "SEO",
-    "Digital Marketing",
+    "SEO & Digital Marketing",
+    "Video Editing & Graphic Design",
     "Other IT Consulting",
   ];
 

@@ -472,7 +472,7 @@ export const SELECTED_WORK_PROJECTS = [
   {
     title: "Apex Quantum OS",
     category: "Web Platform & 3D Interface",
-    service: "Web Development",
+    service: "Website Development",
     year: "2026",
     result: "Sub-second dashboard load time & 42% lift in trial activations",
     image: "/images/work-web.jpg",
@@ -488,9 +488,18 @@ export const SELECTED_WORK_PROJECTS = [
     tags: ["React Native", "Node.js", "Security"]
   },
   {
+    title: "VogueNest Creator Launch",
+    category: "Influencer Video Reel & Creator Campaign",
+    service: "Influencer Marketing",
+    year: "2026",
+    result: "1.4M+ reel views and 6,200+ direct app installs within 72 hours",
+    image: "/images/work-influencer.jpg",
+    tags: ["Creator Collab", "Instagram Reels", "Viral Video"]
+  },
+  {
     title: "Zenith Commerce Growth",
     category: "SEO & Content Architecture",
-    service: "SEO",
+    service: "SEO & Digital Marketing",
     year: "2025",
     result: "280% organic impression growth across target buyer keywords",
     image: "/images/work-seo.jpg",
@@ -499,7 +508,7 @@ export const SELECTED_WORK_PROJECTS = [
   {
     title: "Aura Lifestyle Acquisition",
     category: "Performance Marketing Funnel",
-    service: "Digital Marketing",
+    service: "SEO & Digital Marketing",
     year: "2025",
     result: "3.4x ROAS on Meta and Google Ads with automated WhatsApp routing",
     image: "/images/work-marketing.jpg",

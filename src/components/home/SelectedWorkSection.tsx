@@ -8,13 +8,14 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 export const SelectedWorkSection: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState("All");
-  const categories = ["All", "Web Platforms", "Mobile Apps", "Search & Growth"];
+  const categories = ["All", "Web Platforms", "Mobile Apps", "SEO & Digital Marketing", "Influencers"];
 
   const filteredProjects = SELECTED_WORK_PROJECTS.filter((project) => {
     if (activeFilter === "All") return true;
     if (activeFilter === "Web Platforms") return project.service.includes("Web");
     if (activeFilter === "Mobile Apps") return project.service.includes("App");
-    if (activeFilter === "Search & Growth") return project.service.includes("SEO") || project.service.includes("Marketing");
+    if (activeFilter === "SEO & Digital Marketing") return project.service.includes("SEO") || project.service.includes("Marketing");
+    if (activeFilter === "Influencers") return project.service.includes("Influencer");
     return true;
   });
 

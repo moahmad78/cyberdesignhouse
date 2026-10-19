@@ -44,29 +44,29 @@ export const HeroSection: React.FC = () => {
 
         {/* Italicized Subtitle matching VoometDesign */}
         <div className="text-[clamp(18px,2.2vw,32px)] italic font-light text-[#cbd5e1] drop-shadow-md leading-tight mb-6">
-          Websites, Mobile Apps, SEO & Performance Marketing
+          Influencers, Websites, Mobile Apps, SEO & Digital Marketing
         </div>
 
         <p className="text-[15px] sm:text-[17px] text-slate-300 max-w-2xl font-light leading-relaxed mb-8">
-          From Bangalore to global markets, we engineer high-converting web applications, cross-platform mobile apps, and full-funnel search strategies with boutique design ownership.
+          From Bangalore to global markets, we engineer high-converting web applications, cross-platform mobile apps, vetted creator reels, and full-funnel search strategies with boutique design ownership.
         </p>
 
         {/* Quick Service Links Bar (VoometDesign signature horizontal links) */}
         <div className="hidden md:flex items-center flex-nowrap gap-x-5 text-white/90 font-semibold text-[14px] tracking-wide mb-10">
+          <Link href="/influencers" className="hover:text-white transition-colors uppercase hover:underline underline-offset-4">
+            Influencer Marketing
+          </Link>
+          <span className="text-white/30 font-light">|</span>
           <Link href="/services/web-development" className="hover:text-white transition-colors uppercase hover:underline underline-offset-4">
-            Web Development
+            Website Development
           </Link>
           <span className="text-white/30 font-light">|</span>
           <Link href="/services/app-development" className="hover:text-white transition-colors uppercase hover:underline underline-offset-4">
             App Development
           </Link>
           <span className="text-white/30 font-light">|</span>
-          <Link href="/services/seo" className="hover:text-white transition-colors uppercase hover:underline underline-offset-4">
-            Technical SEO
-          </Link>
-          <span className="text-white/30 font-light">|</span>
-          <Link href="/services/digital-marketing" className="hover:text-white transition-colors uppercase hover:underline underline-offset-4">
-            Digital Marketing
+          <Link href="/services/seo-digital-marketing" className="hover:text-white transition-colors uppercase hover:underline underline-offset-4">
+            SEO & Digital Marketing
           </Link>
         </div>
 
