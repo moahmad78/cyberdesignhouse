@@ -154,8 +154,22 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar (Section 5.3 & 2.3) */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© 2026 Cyber Design House. All rights reserved.</p>
+        <div className="pt-8 flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center sm:text-left">
+            <p>© 2026 Cyber Design House. All rights reserved.</p>
+            <span className="hidden sm:inline text-slate-700">•</span>
+            <p className="flex items-center gap-1">
+              <span>Developed by</span>
+              <a
+                href="https://www.instagram.com/sahil_sheikh78"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-200 font-semibold hover:text-white hover:underline transition-colors"
+              >
+                Sahil Sheikh
+              </a>
+            </p>
+          </div>
 
           <p className="flex items-center gap-1.5">
             <span>Powered by</span>
