@@ -20,7 +20,6 @@ import {
   Video,
   Send,
   Loader2,
-  Sparkles,
   MessageCircle,
 } from "lucide-react";
 
@@ -86,7 +85,7 @@ export default function InfluencersPage() {
         particleCount: 80,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ["#071633", "#2563eb", "#38bdf8", "#10b981"],
+        colors: ["#071633", "#2563eb", "#ffffff", "#10b981"],
       });
     } catch (err: unknown) {
       setApplyStatus("error");
@@ -122,22 +121,27 @@ export default function InfluencersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafaf8] text-[#45556c] pt-24 pb-20 overflow-hidden">
-      {/* 1. Hero Section: Left-Right Split (VoometDesign layout) */}
-      <section className="relative py-14 sm:py-20 bg-[#fafaf8] border-b border-[#e5eaf2]">
-        <div className="absolute inset-0 bg-architectural-grid pointer-events-none opacity-40" />
+    <div className="min-h-screen bg-[#fafaf8] text-[#45556c] pt-[72px] sm:pt-[80px] pb-14">
+      {/* 1. Hero Section: Fresh & Clean */}
+      <section className="relative pt-10 pb-8 sm:pt-12 sm:pb-10 bg-[#fafaf8] border-b border-[#e5eaf2]">
+        <div className="absolute inset-0 bg-architectural-grid pointer-events-none opacity-25" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <SectionHeader
-            caption="CREATORS, EDITORS, DESIGNERS & WRITERS"
-            titleLine1="Find Top Influencers & Talent."
-            titleLine2="Video Editors, Designers & Writers."
-            description="Collaborate with verified creators, viral short-form video editors, brand graphic designers, and conversion copywriters. Hire proven talent for reels, scripts, thumbnail kits, and full marketing campaigns."
-          >
-            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6">
+            <div className="max-w-2xl">
+              <span className="font-heading text-[12.5px] sm:text-[13px] md:text-[14px] uppercase tracking-[0.2em] font-[900] text-[#6E7D9B] mb-2 block">
+                CREATORS, EDITORS, DESIGNERS & WRITERS
+              </span>
+              <h1 className="font-heading text-[#071633] text-[clamp(28px,3vw,44px)] font-[700] tracking-[-0.04em] leading-[1.05] md:leading-[0.98]">
+                Find Top Influencers & Talent. <br className="hidden sm:inline" />
+                <span className="text-slate-600 font-normal">Video Editors, Designers & Writers.</span>
+              </h1>
+            </div>
+
+            <div className="flex items-center gap-3 shrink-0">
               <a
                 href="#find-creators"
-                className="h-[48px] px-6 rounded-full bg-[#071633] hover:bg-[#0f172a] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm"
+                className="h-11 px-6 rounded-full bg-[#071633] hover:bg-[#0f172a] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm cursor-pointer"
               >
                 <span>Find Talent</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -145,199 +149,181 @@ export default function InfluencersPage() {
 
               <a
                 href="#join-network"
-                className="h-[48px] px-6 rounded-full bg-white hover:bg-slate-50 text-[#071633] border border-[#e5eaf2] font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
+                className="h-11 px-6 rounded-full bg-white hover:bg-slate-50 text-[#071633] border border-[#e5eaf2] font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer shadow-2xs"
               >
-                <span>Join as Creator / Editor</span>
+                <span>Join as Creator</span>
               </a>
             </div>
-          </SectionHeader>
+          </div>
 
-          {/* Quick Metrics Bar (VoometDesign card style) */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4">
-            <div className="light-card p-6 rounded-[24px] bg-white border border-[#e5eaf2]">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#f8fafc] border border-[#e5eaf2] flex items-center justify-center text-[#071633]">
-                  <Users className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-[#071633]">1.8M+</div>
-                  <div className="text-xs uppercase tracking-wider text-[#6e7d9b] font-medium">Creator Reach</div>
-                </div>
+          {/* Clean Floating Metrics (Fresh, No Boxy Heavy Borders) */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-5 border-t border-slate-200/70">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-white border border-[#e5eaf2] flex items-center justify-center text-[#071633] shrink-0 shadow-2xs">
+                <Users className="w-4 h-4" />
+              </div>
+              <div>
+                <div className="text-xl sm:text-2xl font-bold text-[#071633] leading-none mb-1">1.8M+</div>
+                <div className="text-[11px] uppercase tracking-wider text-[#6e7d9b] font-medium leading-none">Creator Reach</div>
               </div>
             </div>
 
-            <div className="light-card p-6 rounded-[24px] bg-white border border-[#e5eaf2]">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#f8fafc] border border-[#e5eaf2] flex items-center justify-center text-[#071633]">
-                  <Sparkles className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-[#071633]">10+ Vetted</div>
-                  <div className="text-xs uppercase tracking-wider text-[#6e7d9b] font-medium">Editors & Designers</div>
-                </div>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-white border border-[#e5eaf2] flex items-center justify-center text-[#071633] shrink-0 shadow-2xs">
+                <Video className="w-4 h-4 text-[#071633]" />
+              </div>
+              <div>
+                <div className="text-xl sm:text-2xl font-bold text-[#071633] leading-none mb-1">10+ Vetted</div>
+                <div className="text-[11px] uppercase tracking-wider text-[#6e7d9b] font-medium leading-none">Editors & Talent</div>
               </div>
             </div>
 
-            <div className="light-card p-6 rounded-[24px] bg-white border border-[#e5eaf2]">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#f8fafc] border border-[#e5eaf2] flex items-center justify-center text-[#071633]">
-                  <TrendingUp className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-[#071633]">7.4%</div>
-                  <div className="text-xs uppercase tracking-wider text-[#6e7d9b] font-medium">Avg Engagement</div>
-                </div>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-white border border-[#e5eaf2] flex items-center justify-center text-[#071633] shrink-0 shadow-2xs">
+                <TrendingUp className="w-4 h-4" />
+              </div>
+              <div>
+                <div className="text-xl sm:text-2xl font-bold text-[#071633] leading-none mb-1">7.4%</div>
+                <div className="text-[11px] uppercase tracking-wider text-[#6e7d9b] font-medium leading-none">Avg Engagement</div>
               </div>
             </div>
 
-            <div className="light-card p-6 rounded-[24px] bg-white border border-[#e5eaf2]">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#f8fafc] border border-[#e5eaf2] flex items-center justify-center text-[#071633]">
-                  <Sparkles className="w-5 h-5 text-amber-500" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-[#071633]">100%</div>
-                  <div className="text-xs uppercase tracking-wider text-[#6e7d9b] font-medium">Verified Creators</div>
-                </div>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-white border border-[#e5eaf2] flex items-center justify-center text-[#071633] shrink-0 shadow-2xs">
+                <CheckCircle2 className="w-4 h-4 text-[#071633]" />
+              </div>
+              <div>
+                <div className="text-xl sm:text-2xl font-bold text-[#071633] leading-none mb-1">100%</div>
+                <div className="text-[11px] uppercase tracking-wider text-[#6e7d9b] font-medium leading-none">Verified Talent</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. "Find Influencers" Catalog Section */}
-      <section id="find-creators" className="py-20 bg-white border-b border-[#e5eaf2]">
+      {/* 2. "Find Influencers" Catalog Section: Spacious & Clean */}
+      <section id="find-creators" className="py-8 sm:py-16 bg-white border-b border-[#e5eaf2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header & Controls: Left-Right Split */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end mb-10">
-            <div className="md:col-span-7">
-              <span className="text-[11px] sm:text-[12px] md:text-[13px] uppercase tracking-[0.2em] md:tracking-[0.25em] font-bold text-[#6E7D9B] mb-2 block">
+          {/* Header & Search Toolbar */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8 pb-6 border-b border-slate-100">
+            <div>
+              <span className="font-heading text-[12.5px] sm:text-[13px] uppercase tracking-[0.2em] font-[900] text-[#3b4c68] mb-1.5 block">
                 CREATOR DIRECTORY
               </span>
-              <h2 className="text-[#071633] text-[clamp(32px,3.5vw,48px)] font-bold leading-[1.05] tracking-tight">
-                Onboarded Influencers <br />
-                <span className="text-slate-500 font-light">Available for Reels & Campaigns</span>
+              <h2 className="text-[#071633] text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
+                Onboarded Influencers <span className="text-slate-600 font-normal">& Talent</span>
               </h2>
             </div>
 
             {/* Search Box on Right */}
-            <div className="md:col-span-5 flex md:justify-end">
-              <div className="relative w-full max-w-sm">
-                <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search by creator, niche, or handle..."
-                  className="w-full pl-10 pr-4 py-3 rounded-full bg-[#f8fafc] border border-[#e5eaf2] text-sm text-[#071633] placeholder-slate-400 focus:bg-white focus:border-[#071633] transition-all outline-none"
-                />
-              </div>
+            <div className="relative w-full md:w-80">
+              <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search creator, niche, handle..."
+                className="w-full h-11 pl-11 pr-4 rounded-full bg-[#f8fafc] border border-[#e5eaf2] text-xs text-[#071633] placeholder-slate-400 focus:bg-white focus:border-[#071633] transition-all outline-none"
+              />
             </div>
           </div>
 
-          {/* Category Filter Pills (VoometDesign style) */}
-          <div className="flex flex-wrap gap-2.5 mb-10">
-            {INFLUENCER_CATEGORIES.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-                  selectedCategory === category
-                    ? "bg-[#071633] text-white shadow-sm"
-                    : "bg-white text-[#45556c] border border-[#e5eaf2] hover:border-slate-300 hover:text-[#071633]"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-
-          {/* Influencer Profile Cards Grid (VoometDesign light card style) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredInfluencers.map((inf) => {
-              const whatsappCollabMsg = encodeURIComponent(
-                `Hello! I would like to book an influencer reel/campaign collaboration with ${inf.name} (${inf.handle}) through Cyber Design House.`
-              );
+          {/* Clean, Fresh Filter Tabs Bar (No awkward breaking, no cramped sidebar) */}
+          <div className="flex items-center gap-2 overflow-x-auto scrollbar-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pb-2 mb-6 sm:mb-10 -mx-4 px-4 sm:mx-0 sm:px-0">
+            {INFLUENCER_CATEGORIES.map((category) => {
+              const isSelected = selectedCategory === category;
+              const count =
+                category === "All Talent"
+                  ? INFLUENCERS_LIST.length
+                  : INFLUENCERS_LIST.filter(
+                      (i) => i.category === category || i.badge === category
+                    ).length;
 
               return (
-                <div
-                  key={inf.id}
-                  className="light-card rounded-[28px] p-7 bg-white border border-[#e5eaf2] flex flex-col justify-between"
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-4 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 flex items-center gap-2 ${
+                    isSelected
+                      ? "bg-[#071633] text-white shadow-sm"
+                      : "bg-[#f8fafc] text-[#45556c] border border-[#e5eaf2] hover:bg-slate-100 hover:text-[#071633]"
+                  }`}
                 >
-                  <div>
-                    {/* Top Creator Header */}
-                    <div className="flex items-start gap-4 mb-5">
-                      <div className="relative w-16 h-16 rounded-2xl overflow-hidden bg-slate-100 shrink-0 border border-[#e5eaf2]">
-                        <Image
-                          src={inf.avatar}
-                          alt={inf.name}
-                          fill
-                          sizes="64px"
-                          unoptimized
-                          className="object-cover"
-                        />
-                      </div>
+                  <span>{category}</span>
+                  <span
+                    className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full leading-none ${
+                      isSelected
+                        ? "bg-white/20 text-white"
+                        : "bg-white border border-[#e5eaf2] text-slate-500"
+                    }`}
+                  >
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
 
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-1.5 mb-1">
-                          <h3 className="text-lg font-bold text-[#071633] truncate">
-                            {inf.name}
-                          </h3>
-                          <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                        </div>
-                        <p className="text-xs font-mono text-[#6e7d9b] font-medium truncate">
-                          {inf.handle}
-                        </p>
-                        <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
-                          {inf.roleTitle && (
-                            <span className="px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-[10px] font-semibold text-blue-700">
-                              {inf.roleTitle}
-                            </span>
-                          )}
-                          <span className="px-2.5 py-0.5 rounded-full bg-[#f8fafc] border border-[#e5eaf2] text-[10px] font-medium text-[#45556c]">
-                            {inf.badge}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
+          {/* 3-Column Creator Cards Grid (Spacious, Airy & Modern) */}
+          {filteredInfluencers.length === 0 ? (
+            <div className="text-center py-20 bg-[#f8fafc] rounded-3xl border border-[#e5eaf2] p-8 max-w-lg mx-auto">
+              <Users className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+              <h3 className="text-lg font-bold text-[#071633]">No creators found</h3>
+              <p className="text-xs text-slate-500 mt-1">
+                Try searching with another keyword or reset the category filters.
+              </p>
+              <button
+                onClick={() => {
+                  setSelectedCategory("All Talent");
+                  setSearchQuery("");
+                }}
+                className="mt-5 px-6 py-2.5 rounded-full bg-[#071633] hover:bg-[#0c2452] text-white text-xs font-semibold uppercase tracking-wider cursor-pointer shadow-sm transition-all"
+              >
+                Reset Filters
+              </button>
+            </div>
+          ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                {filteredInfluencers.map((inf) => {
+                return (
+                  <div
+                    key={inf.id}
+                    className="w-full group rounded-2xl p-4 sm:p-5 bg-white border border-[#e5eaf2] hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-between"
+                  >
+                    <div>
+                      {/* Creator Header */}
+                      <div className="flex items-start justify-between gap-3 mb-3">
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-slate-100 shrink-0 border border-[#e5eaf2] shadow-2xs">
+                            <Image
+                              src={inf.avatar}
+                              alt={inf.name}
+                              fill
+                              sizes="48px"
+                              unoptimized
+                              className="object-cover"
+                            />
+                          </div>
 
-                    <p className="text-[13px] text-[#45556c] font-light leading-relaxed mb-6">
-                      {inf.niche}
-                    </p>
+                          <div className="min-w-0">
+                            <div className="flex items-center gap-1.5">
+                              <h3 className="text-[15px] font-bold text-[#071633] truncate">
+                                {inf.name}
+                              </h3>
+                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                            </div>
+                            <p className="text-[11px] font-mono text-[#6e7d9b] truncate">
+                              {inf.handle}
+                            </p>
+                          </div>
+                        </div>
 
-                    {/* Stats Row */}
-                    <div className="grid grid-cols-3 gap-2 p-3.5 rounded-2xl bg-[#f8fafc] border border-[#e5eaf2] mb-6 text-center">
-                      <div>
-                        <div className="text-sm font-bold text-[#071633]">{inf.followers}</div>
-                        <div className="text-[10px] uppercase tracking-wider text-[#6e7d9b] font-medium mt-0.5">
-                          Followers / Reach
-                        </div>
-                      </div>
-                      <div className="border-x border-slate-200">
-                        <div className="text-sm font-bold text-[#071633]">{inf.avgReelViews}</div>
-                        <div className="text-[10px] uppercase tracking-wider text-[#6e7d9b] font-medium mt-0.5">
-                          Avg Views / Impr
-                        </div>
-                      </div>
-                      <div>
-                        <div className="text-sm font-bold text-emerald-600">{inf.engagementRate}</div>
-                        <div className="text-[10px] uppercase tracking-wider text-[#6e7d9b] font-medium mt-0.5">
-                          Engagement
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Platforms & Deliverables */}
-                    <div className="space-y-3 mb-6">
-                      <div className="flex items-center gap-2">
-                        <span className="text-[11px] uppercase tracking-wider text-[#6e7d9b] font-medium">
-                          Platforms:
-                        </span>
-                        <div className="flex items-center gap-1.5">
+                        {/* Platforms */}
+                        <div className="flex items-center gap-1 shrink-0 pt-0.5">
                           {inf.platforms.map((p) => (
                             <span
                               key={p}
-                              className="w-7 h-7 rounded-full bg-white border border-[#e5eaf2] flex items-center justify-center shadow-xs"
+                              className="w-6 h-6 rounded-md bg-[#f8fafc] border border-[#e5eaf2] flex items-center justify-center"
                               title={p}
                             >
                               {getPlatformIcon(p)}
@@ -346,72 +332,65 @@ export default function InfluencersPage() {
                         </div>
                       </div>
 
-                      <div className="flex flex-wrap gap-1.5">
-                        {inf.deliverables.map((del) => (
-                          <span
-                            key={del}
-                            className="px-2.5 py-1 rounded-md bg-white border border-[#e5eaf2] text-[11px] text-[#45556c]"
-                          >
-                            {del}
-                          </span>
-                        ))}
+                      {/* Role & Bio */}
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200 text-[10px] font-semibold text-[#071633] shrink-0">
+                          {inf.roleTitle || inf.category}
+                        </span>
+                        <p className="text-xs text-[#314158] font-medium truncate">
+                          {inf.niche}
+                        </p>
+                      </div>
+
+                      {/* Clean Compact Metrics */}
+                      <div className="grid grid-cols-3 gap-1 py-2 px-2.5 rounded-xl bg-[#f8fafc] border border-[#e5eaf2] text-center mb-3">
+                        <div>
+                          <div className="text-xs font-bold text-[#071633]">{inf.followers}</div>
+                          <div className="text-[9px] uppercase tracking-wider text-[#6e7d9b]">Reach</div>
+                        </div>
+                        <div className="border-x border-slate-200/80">
+                          <div className="text-xs font-bold text-[#071633]">{inf.avgReelViews}</div>
+                          <div className="text-[9px] uppercase tracking-wider text-[#6e7d9b]">Views</div>
+                        </div>
+                        <div>
+                          <div className="text-xs font-bold text-emerald-600">{inf.engagementRate}</div>
+                          <div className="text-[9px] uppercase tracking-wider text-[#6e7d9b]">Engage</div>
+                        </div>
                       </div>
                     </div>
+
+                    {/* Single Sleek CTA */}
+                    <div className="pt-1">
+                      <a
+                        href={`https://wa.me/919845014279?text=${encodeURIComponent(
+                          `Hi Cyber Design House! I want to hire ${inf.name} (${inf.roleTitle || inf.category}) for our upcoming project.`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full h-9 rounded-xl bg-[#071633] hover:bg-[#0c2452] text-white font-semibold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5" />
+                        <span>
+                          {inf.category === "Video Editors"
+                            ? "Hire Editor"
+                            : inf.category === "Graphic Designers"
+                            ? "Hire Designer"
+                            : inf.category === "Content Writers"
+                            ? "Hire Writer"
+                            : "Hire Creator"}
+                        </span>
+                      </a>
+                    </div>
                   </div>
-
-                  {/* Card Bottom CTA */}
-                  <div className="pt-4 border-t border-slate-100 flex items-center gap-3">
-                    <a
-                      href={`https://wa.me/919845014279?text=${encodeURIComponent(
-                        `Hi Cyber Design House! I want to hire ${inf.name} (${inf.roleTitle || inf.category}) for our upcoming project.`
-                      )}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 h-[44px] rounded-full bg-[#071633] hover:bg-[#0f172a] text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all shadow-sm"
-                    >
-                      <MessageCircle className="w-3.5 h-3.5" />
-                      <span>
-                        {inf.category === "Video Editors"
-                          ? "Hire Editor"
-                          : inf.category === "Graphic Designers"
-                          ? "Hire Designer"
-                          : inf.category === "Content Writers"
-                          ? "Hire Writer"
-                          : "Hire for Reel"}
-                      </span>
-                    </a>
-
-                    <Link
-                      href="/contact"
-                      className="h-[44px] px-4 rounded-full border border-[#071633]/15 text-[#071633] font-semibold text-xs uppercase tracking-wider flex items-center justify-center hover:bg-slate-50 transition-colors"
-                    >
-                      Inquire
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {filteredInfluencers.length === 0 && (
-            <div className="text-center py-16 bg-[#f8fafc] rounded-[28px] border border-[#e5eaf2]">
-              <p className="text-base text-[#45556c]">No influencers found matching your criteria.</p>
-              <button
-                onClick={() => {
-                  setSelectedCategory("All Creators");
-                  setSearchQuery("");
-                }}
-                className="mt-4 px-6 py-2.5 rounded-full bg-[#071633] text-white text-xs font-semibold uppercase tracking-wider"
-              >
-                Reset Filters
-              </button>
+                );
+              })}
             </div>
           )}
         </div>
       </section>
 
       {/* 3. "Join Our Creator Network" Onboarding Form Section */}
-      <section id="join-network" className="py-20 sm:py-28 bg-[#fafaf8] border-b border-[#e5eaf2]">
+      <section id="join-network" className="py-10 sm:py-24 bg-[#fafaf8] border-b border-[#e5eaf2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             caption="CREATOR ONBOARDING"
@@ -420,19 +399,19 @@ export default function InfluencersPage() {
             description="We connect content creators with paid brand campaigns, product launches, luxury spatial tours, and high-budget video reel collaborations."
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
             {/* Left Form: White Card (VoometDesign Card Style) */}
-            <div className="lg:col-span-7 bg-white p-7 sm:p-10 rounded-[28px] border border-[#e5eaf2] shadow-sm">
+            <div className="lg:col-span-7 bg-white p-7 sm:p-10 rounded-[28px] border border-[#e5eaf2] shadow-sm flex flex-col justify-between h-full">
               {applyStatus === "success" ? (
-                <div className="text-center py-12 space-y-4">
+                <div className="text-center py-12 space-y-4 my-auto">
                   <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto mb-6">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h3 className="text-2xl font-bold text-[#071633]">Creator Application Received!</h3>
-                  <p className="text-[#45556c] text-sm font-light max-w-md mx-auto leading-relaxed">
+                  <p className="text-[#314158] text-sm font-normal max-w-md mx-auto leading-relaxed">
                     Thank you, <strong className="text-[#071633]">{formState.name}</strong>. Our creator partnerships manager will review your reels and profile and connect via WhatsApp within 2 business days.
                   </p>
-                  <div className="pt-6">
+                  <div className="pt-4">
                     <button
                       onClick={() => {
                         setApplyStatus("idle");
@@ -440,7 +419,7 @@ export default function InfluencersPage() {
                           name: "",
                           handle: "",
                           platform: "Instagram Reels",
-                          category: "Tech & AI",
+                          category: "Video Editors",
                           followers: "",
                           avgViews: "",
                           email: "",
@@ -449,7 +428,7 @@ export default function InfluencersPage() {
                           message: "",
                         });
                       }}
-                      className="px-6 py-2.5 rounded-full bg-[#f8fafc] border border-[#e5eaf2] hover:bg-slate-100 text-[#071633] text-xs font-semibold uppercase tracking-wider transition-colors"
+                      className="px-6 py-2.5 rounded-full bg-[#f8fafc] border border-[#e5eaf2] hover:bg-slate-100 text-[#071633] text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer"
                     >
                       Submit Another Application
                     </button>
@@ -460,7 +439,7 @@ export default function InfluencersPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[#314158] font-semibold mb-2">
-                        Creator / Full Name <span className="text-blue-600">*</span>
+                        Creator / Full Name <span className="text-rose-500">*</span>
                       </label>
                       <input
                         type="text"
@@ -474,7 +453,7 @@ export default function InfluencersPage() {
 
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[#314158] font-semibold mb-2">
-                        Social Handle / Profile Link <span className="text-blue-600">*</span>
+                        Social Handle / Profile Link <span className="text-rose-500">*</span>
                       </label>
                       <input
                         type="text"
@@ -541,21 +520,21 @@ export default function InfluencersPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[#314158] font-semibold mb-2">
-                        Email Address <span className="text-blue-600">*</span>
+                        Email Address <span className="text-rose-500">*</span>
                       </label>
                       <input
                         type="email"
                         required
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                        placeholder="contact@creator.com"
+                        placeholder="rahul@company.com"
                         className="w-full px-4 py-3 rounded-xl bg-[#f8fafc] border border-[#e5eaf2] focus:border-[#071633] focus:bg-white text-[#071633] placeholder-slate-400 text-sm transition-all outline-none"
                       />
                     </div>
 
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-[#314158] font-semibold mb-2">
-                        WhatsApp Number <span className="text-blue-600">*</span>
+                        WhatsApp Number <span className="text-rose-500">*</span>
                       </label>
                       <input
                         type="tel"
@@ -603,7 +582,7 @@ export default function InfluencersPage() {
                   <button
                     type="submit"
                     disabled={applyStatus === "loading"}
-                    className="w-full h-[52px] rounded-full bg-[#071633] hover:bg-[#0f172a] text-white font-bold text-xs uppercase tracking-wider shadow-sm flex items-center justify-center gap-2 transition-all disabled:opacity-50"
+                    className="w-full h-[52px] rounded-full bg-[#071633] hover:bg-[#0f172a] text-white font-bold text-xs uppercase tracking-wider shadow-sm flex items-center justify-center gap-2 transition-all disabled:opacity-50 cursor-pointer"
                   >
                     {applyStatus === "loading" ? (
                       <>
@@ -621,55 +600,82 @@ export default function InfluencersPage() {
               )}
             </div>
 
-            {/* Right Information Card */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="bg-white p-8 sm:p-9 rounded-[28px] border border-[#e5eaf2] shadow-sm space-y-6">
+            {/* Right Information Card (Matches Height of Left Card) */}
+            <div className="lg:col-span-5 flex flex-col h-full">
+              <div className="bg-white p-8 sm:p-10 rounded-[28px] border border-[#e5eaf2] shadow-sm flex flex-col justify-between flex-1 h-full">
                 <div>
-                  <span className="text-[11px] uppercase tracking-[0.2em] text-[#6e7d9b] font-bold block mb-1">
-                    WHY JOIN CDH ROSTER
-                  </span>
-                  <h3 className="text-2xl font-bold text-[#071633] tracking-tight">Creator Benefits</h3>
+                  <div className="mb-6">
+                    <span className="text-[11px] uppercase tracking-[0.2em] text-[#6e7d9b] font-bold block mb-1">
+                      WHY JOIN CDH ROSTER
+                    </span>
+                    <h3 className="text-2xl font-bold text-[#071633] tracking-tight">Creator Benefits</h3>
+                    <p className="text-xs text-slate-500 mt-1">
+                      Dedicated representation & premium brand collaborations for high-caliber creators.
+                    </p>
+                  </div>
+
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3 text-sm text-[#45556c]">
+                      <div className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">
+                        ✓
+                      </div>
+                      <span>
+                        <strong className="text-[#071633]">High-Budget Brand Deals:</strong> Access paid campaigns from venture-backed tech startups, enterprise SaaS, and premium turnkey interior brands.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3 text-sm text-[#45556c]">
+                      <div className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">
+                        ✓
+                      </div>
+                      <span>
+                        <strong className="text-[#071633]">Guaranteed On-Time Payments:</strong> Milestone payments managed cleanly by Cyber Design House and VoometDesign with 0% delay.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3 text-sm text-[#45556c]">
+                      <div className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">
+                        ✓
+                      </div>
+                      <span>
+                        <strong className="text-[#071633]">Production & Motion Support:</strong> Access our in-house 3D animation, scriptwriting, VFX assets, and professional editing team.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3 text-sm text-[#45556c]">
+                      <div className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">
+                        ✓
+                      </div>
+                      <span>
+                        <strong className="text-[#071633]">Talent Representation:</strong> Get pitched directly to top brands without handling cold outreach or awkward contract negotiations.
+                      </span>
+                    </li>
+                  </ul>
+
+                  {/* Highlights Grid */}
+                  <div className="grid grid-cols-2 gap-3 my-6 p-4 rounded-2xl bg-[#f8fafc] border border-[#e5eaf2]">
+                    <div className="p-3 bg-white rounded-xl border border-slate-200/60 text-center shadow-2xs">
+                      <div className="text-xl font-bold text-[#071633]">100%</div>
+                      <div className="text-[10px] uppercase text-slate-500 font-medium mt-0.5">Retained Revenue</div>
+                    </div>
+                    <div className="p-3 bg-white rounded-xl border border-slate-200/60 text-center shadow-2xs">
+                      <div className="text-xl font-bold text-emerald-600">48h</div>
+                      <div className="text-[10px] uppercase text-slate-500 font-medium mt-0.5">Roster Review</div>
+                    </div>
+                  </div>
                 </div>
 
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3 text-sm text-[#45556c]">
-                    <div className="w-5 h-5 rounded-full bg-[#f8fafc] border border-[#e5eaf2] text-[#071633] flex items-center justify-center shrink-0 mt-0.5">
-                      ✓
-                    </div>
-                    <span>
-                      <strong className="text-[#071633]">High-Budget Brand Deals:</strong> Access paid campaigns from venture-backed tech startups, enterprise SaaS, and premium turnkey interior brands.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-[#45556c]">
-                    <div className="w-5 h-5 rounded-full bg-[#f8fafc] border border-[#e5eaf2] text-[#071633] flex items-center justify-center shrink-0 mt-0.5">
-                      ✓
-                    </div>
-                    <span>
-                      <strong className="text-[#071633]">On-Time Payments:</strong> Guaranteed milestone payments managed cleanly by Cyber Design House and VoometDesign.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3 text-sm text-[#45556c]">
-                    <div className="w-5 h-5 rounded-full bg-[#f8fafc] border border-[#e5eaf2] text-[#071633] flex items-center justify-center shrink-0 mt-0.5">
-                      ✓
-                    </div>
-                    <span>
-                      <strong className="text-[#071633]">Production & Motion Support:</strong> Access our in-house 3D animation, scriptwriting, and color grading resources.
-                    </span>
-                  </li>
-                </ul>
-
+                {/* Bottom WhatsApp Contact */}
                 <div className="pt-4 border-t border-slate-100">
-                  <p className="text-xs text-[#6e7d9b]">
-                    Questions? Reach our Bangalore creator partnerships team directly on WhatsApp at{" "}
-                    <a
-                      href="https://wa.me/919845014279?text=Hi%20Cyber%20Design%20House!%20I%20have%20a%20question%20about%20your%20influencer%20creator%20network."
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#071633] font-bold underline"
-                    >
-                      +91 98450 14279
-                    </a>
+                  <p className="text-xs text-[#6e7d9b] mb-3">
+                    Have questions about contracts, rates, or campaigns?
                   </p>
+                  <a
+                    href="https://wa.me/919845014279?text=Hi%20Cyber%20Design%20House!%20I%20have%20a%20question%20about%20your%20influencer%20creator%20network."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full h-12 rounded-full border border-emerald-500/40 text-emerald-700 hover:bg-emerald-50 font-semibold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer shadow-2xs"
+                  >
+                    <MessageCircle className="w-4 h-4 text-emerald-600" />
+                    <span>WhatsApp Creator Lead (+91 98450 14279)</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -683,13 +689,13 @@ export default function InfluencersPage() {
           <div className="rounded-[32px] bg-[#071633] p-8 sm:p-12 lg:p-14 text-white">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-3">
-                <span className="text-[11px] uppercase tracking-[0.25em] text-slate-300 font-bold block">
+                <span className="font-heading text-[12.5px] uppercase tracking-[0.25em] text-slate-200 font-[900] block">
                   BRAND CAMPAIGNS
                 </span>
                 <h2 className="text-[clamp(28px,3.5vw,46px)] font-bold tracking-tight leading-tight">
                   Want an End-to-End Reels Campaign for Your Brand?
                 </h2>
-                <p className="text-sm sm:text-base text-slate-300 font-light max-w-xl leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-200 font-normal max-w-xl leading-relaxed">
                   We handle talent selection, creative scripting, production supervision, and performance amplification across Instagram and YouTube.
                 </p>
               </div>

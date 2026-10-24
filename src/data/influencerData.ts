@@ -96,7 +96,7 @@ export const INFLUENCERS_LIST: Influencer[] = [
     avgReelViews: "520K+",
     engagementRate: "7.2%",
     platforms: ["Instagram", "YouTube", "LinkedIn"],
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+    avatar: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=400&q=80",
     badge: "Top Tech Creator",
     deliverables: ["Dedicated Reel", "Developer Walkthrough", "Product Review"],
     location: "Bangalore, India",

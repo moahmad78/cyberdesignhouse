@@ -55,32 +55,30 @@ export const Services3DViewer: React.FC<Services3DViewerProps> = ({
     dirLight.position.set(4, 5, 5);
     scene.add(dirLight);
 
-    const cyanLight = new THREE.PointLight(0x38bdf8, 3.5, 15);
-    cyanLight.position.set(-3, 2, 4);
-    scene.add(cyanLight);
+    const whiteSoftLight = new THREE.PointLight(0xffffff, 2.5, 15);
+    whiteSoftLight.position.set(-3, 2, 4);
+    scene.add(whiteSoftLight);
 
     const blueLight = new THREE.PointLight(0x1d4ed8, 3.0, 15);
     blueLight.position.set(3, -2, 2);
     scene.add(blueLight);
 
     // Shared groups for each service:
-    // 0: Influencer Marketing
-    // 1: Website Development
-    // 2: App Development
-    // 3: SEO & Digital Marketing
+    // 0: Web & App Development (Browser + Smartphone)
+    // 1: SEO & Digital Marketing
+    // 2: Influencer Marketing
     const groups: THREE.Group[] = [
-      new THREE.Group(), // 0: Influencer Marketing
-      new THREE.Group(), // 1: Website Development
-      new THREE.Group(), // 2: App Development
-      new THREE.Group(), // 3: SEO & Digital Marketing
+      new THREE.Group(), // 0: Web & App Development
+      new THREE.Group(), // 1: SEO & Digital Marketing
+      new THREE.Group(), // 2: Influencer Marketing
     ];
 
     groups.forEach((g) => scene.add(g));
 
     // ==========================================
-    // 0. INFLUENCER MARKETING: Studio Ring Light & 9:16 Reel Camera
+    // 2. INFLUENCER MARKETING: Studio Ring Light & 9:16 Reel Camera
     // ==========================================
-    const infGroup = groups[0];
+    const infGroup = groups[2];
     // Studio Ring Light
     const ringLightGeom = new THREE.TorusGeometry(1.6, 0.12, 16, 64);
     const ringLightMat = new THREE.MeshPhysicalMaterial({
@@ -135,9 +133,9 @@ export const Services3DViewer: React.FC<Services3DViewerProps> = ({
     infGroup.add(reelPhone);
 
     // ==========================================
-    // 1. WEBSITE DEVELOPMENT: Browser Glass Panels
+    // 0. WEB & APP DEVELOPMENT: Dual Browser Panel + 3D Smartphone
     // ==========================================
-    const webGroup = groups[1];
+    const webGroup = groups[0];
     const glassMaterial = new THREE.MeshPhysicalMaterial({
       color: new THREE.Color("#1e293b"),
       metalness: 0.2,
@@ -148,47 +146,40 @@ export const Services3DViewer: React.FC<Services3DViewerProps> = ({
       clearcoat: 0.8,
     });
     const frameMaterial = new THREE.MeshStandardMaterial({
-      color: new THREE.Color("#38bdf8"),
+      color: new THREE.Color("#ffffff"),
       wireframe: true,
       transparent: true,
       opacity: 0.35,
     });
 
-    const panelGeom = new THREE.BoxGeometry(3.2, 2.1, 0.08);
+    const panelGeom = new THREE.BoxGeometry(2.8, 1.9, 0.08);
     const mainBrowser = new THREE.Mesh(panelGeom, glassMaterial);
     const mainFrame = new THREE.Mesh(panelGeom, frameMaterial);
     mainBrowser.add(mainFrame);
+    mainBrowser.position.set(-0.6, 0.2, -0.3);
     webGroup.add(mainBrowser);
 
-    // Floating secondary code panels
-    const codeGeom = new THREE.BoxGeometry(1.6, 1.2, 0.05);
+    // Floating secondary code panel
+    const codeGeom = new THREE.BoxGeometry(1.4, 1.0, 0.05);
     const codePanel1 = new THREE.Mesh(codeGeom, glassMaterial);
-    codePanel1.position.set(-1.4, 0.8, 0.6);
-    codePanel1.rotation.y = 0.25;
+    codePanel1.position.set(-1.4, 0.8, 0.2);
+    codePanel1.rotation.y = 0.2;
     webGroup.add(codePanel1);
 
-    const codePanel2 = new THREE.Mesh(codeGeom, glassMaterial);
-    codePanel2.position.set(1.4, -0.6, 0.8);
-    codePanel2.rotation.y = -0.3;
-    webGroup.add(codePanel2);
-
     // Browser header dots
-    [-1.3, -1.15, -1.0].forEach((x, idx) => {
+    [-1.15, -1.02, -0.89].forEach((x, idx) => {
       const dot = new THREE.Mesh(
-        new THREE.SphereGeometry(0.04, 12, 12),
+        new THREE.SphereGeometry(0.035, 12, 12),
         new THREE.MeshBasicMaterial({
           color: idx === 0 ? 0xef4444 : idx === 1 ? 0xf59e0b : 0x10b981,
         })
       );
-      dot.position.set(x, 0.9, 0.05);
+      dot.position.set(x, 0.8, 0.05);
       mainBrowser.add(dot);
     });
 
-    // ==========================================
-    // 2. APP DEVELOPMENT: 3D Smartphone
-    // ==========================================
-    const appGroup = groups[2];
-    const phoneBodyGeom = new THREE.BoxGeometry(2.0, 3.8, 0.22);
+    // 3D Smartphone integrated into Web & App group
+    const phoneBodyGeom = new THREE.BoxGeometry(1.4, 2.7, 0.16);
     const phoneBodyMat = new THREE.MeshPhysicalMaterial({
       color: new THREE.Color("#09101d"),
       metalness: 0.95,
@@ -196,37 +187,34 @@ export const Services3DViewer: React.FC<Services3DViewerProps> = ({
       clearcoat: 1.0,
     });
     const phone = new THREE.Mesh(phoneBodyGeom, phoneBodyMat);
+    phone.position.set(1.0, -0.3, 0.5);
 
     // Phone Screen
-    const screenGeom = new THREE.PlaneGeometry(1.8, 3.5);
+    const screenGeom = new THREE.PlaneGeometry(1.25, 2.45);
     const screenMat = new THREE.MeshBasicMaterial({
       color: new THREE.Color("#0f172a"),
     });
     const screen = new THREE.Mesh(screenGeom, screenMat);
-    screen.position.z = 0.12;
+    screen.position.z = 0.09;
     phone.add(screen);
 
-    // Floating UI Card layers
-    const cardGeom = new THREE.BoxGeometry(1.5, 0.8, 0.05);
+    // Floating UI Card layer
+    const cardGeom = new THREE.BoxGeometry(1.1, 0.55, 0.04);
     const cardMat = new THREE.MeshStandardMaterial({
       color: new THREE.Color("#1e3a5f"),
       metalness: 0.5,
       roughness: 0.3,
     });
     const card1 = new THREE.Mesh(cardGeom, cardMat);
-    card1.position.set(0, 0.6, 0.35);
+    card1.position.set(0, 0.4, 0.2);
     phone.add(card1);
 
-    const card2 = new THREE.Mesh(cardGeom, cardMat);
-    card2.position.set(0, -0.5, 0.45);
-    phone.add(card2);
-
-    appGroup.add(phone);
+    webGroup.add(phone);
 
     // ==========================================
-    // 3. SEO & DIGITAL MARKETING: Rising Chart + Funnel Rings
+    // 1. SEO & DIGITAL MARKETING: Rising Chart + Funnel Rings
     // ==========================================
-    const seoMktGroup = groups[3];
+    const seoMktGroup = groups[1];
     const barWidth = 0.32;
     const barSpacing = 0.48;
     const barHeights = [1.2, 1.8, 2.5, 3.4, 4.2];
@@ -235,8 +223,8 @@ export const Services3DViewer: React.FC<Services3DViewerProps> = ({
       const barGeom = new THREE.BoxGeometry(barWidth, h, barWidth);
       const isTop = i === barHeights.length - 1;
       const barMat = new THREE.MeshPhysicalMaterial({
-        color: isTop ? new THREE.Color("#38bdf8") : new THREE.Color("#1e3a5f"),
-        emissive: isTop ? new THREE.Color("#0284c7") : new THREE.Color("#0c2d48"),
+        color: isTop ? new THREE.Color("#2563eb") : new THREE.Color("#1e3a5f"),
+        emissive: isTop ? new THREE.Color("#1d4ed8") : new THREE.Color("#0c2d48"),
         emissiveIntensity: isTop ? 0.7 : 0.2,
         metalness: 0.8,
         roughness: 0.2,
@@ -249,8 +237,8 @@ export const Services3DViewer: React.FC<Services3DViewerProps> = ({
     // Glowing Funnel Ring
     const mktRingGeom = new THREE.TorusGeometry(1.4, 0.06, 12, 48);
     const mktRingMat = new THREE.MeshStandardMaterial({
-      color: new THREE.Color("#38bdf8"),
-      emissive: new THREE.Color("#0ea5e9"),
+      color: new THREE.Color("#2563eb"),
+      emissive: new THREE.Color("#1d4ed8"),
       emissiveIntensity: 0.5,
     });
     const mktRing = new THREE.Mesh(mktRingGeom, mktRingMat);
@@ -316,17 +304,11 @@ export const Services3DViewer: React.FC<Services3DViewerProps> = ({
       }
 
       if (webGroup.visible) {
-        webGroup.rotation.y = Math.sin(time * 0.5) * 0.2;
-        webGroup.rotation.x = Math.cos(time * 0.4) * 0.1;
-        codePanel1.position.z = 0.6 + Math.sin(time * 1.5) * 0.15;
-        codePanel2.position.z = 0.8 + Math.cos(time * 1.5) * 0.15;
-      }
-
-      if (appGroup.visible) {
-        phone.rotation.y = Math.sin(time * 0.8) * 0.35 + 0.1;
-        phone.rotation.x = Math.cos(time * 0.6) * 0.15;
-        card1.position.z = 0.35 + Math.sin(time * 2) * 0.1;
-        card2.position.z = 0.45 + Math.cos(time * 2) * 0.1;
+        webGroup.rotation.y = Math.sin(time * 0.5) * 0.15;
+        webGroup.rotation.x = Math.cos(time * 0.4) * 0.08;
+        codePanel1.position.z = 0.2 + Math.sin(time * 1.5) * 0.1;
+        phone.rotation.y = Math.sin(time * 0.8) * 0.2 + 0.1;
+        phone.position.y = -0.3 + Math.cos(time * 1.2) * 0.06;
       }
 
       if (seoMktGroup.visible) {

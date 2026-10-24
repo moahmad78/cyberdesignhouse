@@ -3,11 +3,12 @@ import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Preloader } from "@/components/layout/Preloader";
 import { CustomCursor } from "@/components/layout/CustomCursor";
 import { FloatingActions } from "@/components/layout/FloatingActions";
 import { ConsentBanner } from "@/components/layout/ConsentBanner";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
+import { ConsultationModalProvider } from "@/context/ConsultationModalContext";
+import { GlobalFloatingShard } from "@/components/layout/GlobalFloatingShard";
 import { SITE_METADATA } from "@/data/siteData";
 
 const inter = Inter({
@@ -31,8 +32,9 @@ export const metadata: Metadata = {
   description:
     "Bangalore-based IT services: custom web applications, native & cross-platform mobile apps, technical SEO, and conversion-focused performance marketing by VoometDesign.",
   keywords: [
+    "web & app development company Bangalore",
     "web development company Bangalore",
-    "app development company Bangalore",
+    "mobile app development Bangalore",
     "SEO services Bangalore",
     "digital marketing agency Bangalore",
     "Cyber Design House",
@@ -147,28 +149,30 @@ export default function RootLayout({
 
         {/* Global Motion & Interaction Layer */}
         <SmoothScrollProvider>
-          {/* Preloader (Section 5.1) */}
-          <Preloader />
+          <ConsultationModalProvider>
+            {/* 3D Roaming Crystal Shard emerging from Header across all pages */}
+            <GlobalFloatingShard />
 
-          {/* Custom Cursor for Desktop (Section 5.5) */}
-          <CustomCursor />
+            {/* Custom Cursor for Desktop (Section 5.5) */}
+            <CustomCursor />
 
-          {/* Sticky Header with Elevation (Section 5.2) */}
-          <Header />
+            {/* Sticky Header with Elevation (Section 5.2) */}
+            <Header />
 
-          {/* Main Content Area */}
-          <main id="main-content" className="flex-grow focus:outline-none">
-            {children}
-          </main>
+            {/* Main Content Area */}
+            <main id="main-content" className="flex-grow focus:outline-none">
+              {children}
+            </main>
 
-          {/* Footer (Section 5.3) */}
-          <Footer />
+            {/* Footer (Section 5.3) */}
+            <Footer />
 
-          {/* Floating WhatsApp and Back to Top (Section 5.4) */}
-          <FloatingActions />
+            {/* Floating WhatsApp and Back to Top (Section 5.4) */}
+            <FloatingActions />
 
-          {/* Cookie & Consent Banner (Section 5.6) */}
-          <ConsentBanner />
+            {/* Cookie & Consent Banner (Section 5.6) */}
+            <ConsentBanner />
+          </ConsultationModalProvider>
         </SmoothScrollProvider>
       </body>
     </html>

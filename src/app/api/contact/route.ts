@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, company, services, budget, message, consent, honeypot } = body;
+    const { name, email, phone, company, services, duration, budget, message, consent, honeypot } = body;
 
     // Honeypot spam protection (Section 6.3)
     if (honeypot) {
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
       phone,
       company,
       services,
-      budget,
+      duration: duration || budget,
       message,
       timestamp: new Date().toISOString(),
     });

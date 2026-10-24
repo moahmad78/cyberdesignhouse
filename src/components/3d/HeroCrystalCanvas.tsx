@@ -53,9 +53,9 @@ export const HeroCrystalCanvas: React.FC = () => {
     mainLight.position.set(5, 6, 6);
     scene.add(mainLight);
 
-    const cyanRimLight = new THREE.PointLight(0x38bdf8, 4.5, 18, 1.2);
-    cyanRimLight.position.set(-4, -2, 3);
-    scene.add(cyanRimLight);
+    const crystalRimLight = new THREE.PointLight(0xffffff, 4.0, 18, 1.2);
+    crystalRimLight.position.set(-4, -2, 3);
+    scene.add(crystalRimLight);
 
     const blueBackLight = new THREE.DirectionalLight(0x1d4ed8, 3.0);
     blueBackLight.position.set(-6, 4, -4);
@@ -65,8 +65,24 @@ export const HeroCrystalCanvas: React.FC = () => {
     silverRimLight.position.set(4, -3, 2);
     scene.add(silverRimLight);
 
-    // Root Group
+    // Root Group (Positioned on the right to complement left-aligned hero text)
     const rootGroup = new THREE.Group();
+    const updateLayout = () => {
+      const isMobile = window.innerWidth < 768;
+      const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+      if (isMobile) {
+        rootGroup.scale.set(0.5, 0.5, 0.5);
+        return 1.8;
+      } else if (isTablet) {
+        rootGroup.scale.set(0.7, 0.7, 0.7);
+        return 1.6;
+      } else {
+        rootGroup.scale.set(1.0, 1.0, 1.0);
+        return 2.1;
+      }
+    };
+    let baseX = updateLayout();
+    rootGroup.position.x = baseX;
     scene.add(rootGroup);
 
     // 1. Faceted Polygonal Crystal Logo Object
@@ -216,6 +232,7 @@ export const HeroCrystalCanvas: React.FC = () => {
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
+      baseX = updateLayout();
     };
 
     window.addEventListener("resize", handleResize);
@@ -243,7 +260,7 @@ export const HeroCrystalCanvas: React.FC = () => {
 
       // Scroll-driven drift: crystal shifts to side and recedes as user scrolls past hero
       const scrollFactor = Math.min(scrollY / 800, 1.5);
-      rootGroup.position.x = scrollFactor * 2.8;
+      rootGroup.position.x = baseX + scrollFactor * 2.2;
       rootGroup.position.z = -scrollFactor * 1.5;
       rootGroup.rotation.z = scrollFactor * 0.4;
 

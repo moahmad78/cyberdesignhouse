@@ -31,10 +31,10 @@ export const Footer: React.FC = () => {
                 href={SITE_METADATA.parentUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sky-400 hover:text-sky-300 underline underline-offset-2 transition-colors inline-flex items-center gap-1"
+                className="text-white hover:text-slate-200 underline underline-offset-2 transition-colors inline-flex items-center gap-1 font-medium"
               >
                 VoometDesign
-                <ArrowUpRight className="w-3 h-3 inline" />
+                <ArrowUpRight className="w-3 h-3 inline text-white" />
               </a>
               . Delivering high-precision web development, native mobile apps, technical SEO, and conversion marketing since 2010.
             </p>
@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
 
           {/* Core Services Links */}
           <div>
-            <h3 className="text-xs font-mono uppercase tracking-widest text-sky-400 mb-4 font-semibold">
+            <h3 className="text-xs font-mono uppercase tracking-widest text-white mb-4 font-bold">
               Services
             </h3>
             <ul className="space-y-2.5 text-sm">
@@ -57,7 +57,7 @@ export const Footer: React.FC = () => {
                     href={`/services/${s.slug}`}
                     className="text-slate-400 hover:text-white transition-colors flex items-center gap-1.5 group"
                   >
-                    <span className="text-[10px] font-mono text-slate-600 group-hover:text-sky-400">
+                    <span className="text-[10px] font-mono text-slate-500 group-hover:text-white">
                       {s.number}
                     </span>
                     <span>{s.title}</span>
@@ -69,7 +69,7 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xs font-mono uppercase tracking-widest text-sky-400 mb-4 font-semibold">
+            <h3 className="text-xs font-mono uppercase tracking-widest text-white mb-4 font-bold">
               Quick Links
             </h3>
             <ul className="space-y-2.5 text-sm">
@@ -81,7 +81,13 @@ export const Footer: React.FC = () => {
               <li>
                 <Link href="/influencers" className="text-slate-400 hover:text-white transition-colors flex items-center justify-between">
                   <span>Influencers Network</span>
-                  <span className="text-[10px] font-mono text-sky-400 bg-sky-950/60 px-1.5 py-0.5 rounded border border-sky-800/40">New</span>
+                  <span className="text-[10px] font-mono text-white bg-white/10 px-1.5 py-0.5 rounded border border-white/20">New</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-slate-400 hover:text-white transition-colors flex items-center justify-between">
+                  <span>Engineering &amp; Tech Blog</span>
+                  <span className="text-[10px] font-mono text-white bg-blue-600/30 text-blue-300 px-1.5 py-0.5 rounded border border-blue-500/30">New</span>
                 </Link>
               </li>
               <li>
@@ -97,7 +103,7 @@ export const Footer: React.FC = () => {
                   className="text-slate-400 hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <span>VoometDesign Interiors</span>
-                  <ExternalLink className="w-3 h-3 text-sky-400" />
+                  <ExternalLink className="w-3 h-3 text-white" />
                 </a>
               </li>
               <li>
@@ -115,18 +121,18 @@ export const Footer: React.FC = () => {
 
           {/* Bangalore Headquarters */}
           <div>
-            <h3 className="text-xs font-mono uppercase tracking-widest text-sky-400 mb-4 font-semibold">
+            <h3 className="text-xs font-mono uppercase tracking-widest text-white mb-4 font-bold">
               Bangalore Studio
             </h3>
             <ul className="space-y-3 text-sm text-slate-400">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-white shrink-0 mt-0.5" />
                 <span className="text-xs leading-relaxed">
                   {SITE_METADATA.address}
                 </span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-sky-400 shrink-0" />
+                <Phone className="w-4 h-4 text-white shrink-0" />
                 <a
                   href={`tel:${SITE_METADATA.phoneRaw}`}
                   className="text-xs hover:text-white font-mono transition-colors"
@@ -135,7 +141,7 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-sky-400 shrink-0" />
+                <Mail className="w-4 h-4 text-white shrink-0" />
                 <a
                   href={`mailto:${SITE_METADATA.email}`}
                   className="text-xs hover:text-white transition-colors"
@@ -157,7 +163,7 @@ export const Footer: React.FC = () => {
               href={SITE_METADATA.parentUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-300 font-semibold hover:text-sky-400 transition-colors"
+              className="text-slate-200 font-semibold hover:text-white transition-colors"
             >
               VoometDesign
             </a>

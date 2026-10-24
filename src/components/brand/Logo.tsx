@@ -71,7 +71,7 @@ export const Logo: React.FC<LogoProps> = ({
             <div className="flex items-center gap-1.5 mt-1">
               <div
                 className={`h-[1px] w-2.5 ${
-                  isDark ? "bg-sky-400" : "bg-[#071633]"
+                  isDark ? "bg-white/70" : "bg-[#071633]"
                 }`}
               />
               <span
@@ -91,7 +91,7 @@ export const Logo: React.FC<LogoProps> = ({
               </span>
               <div
                 className={`h-[1px] w-6 ${
-                  isDark ? "bg-sky-400/40" : "bg-slate-300"
+                  isDark ? "bg-white/30" : "bg-slate-300"
                 }`}
               />
             </div>
@@ -105,7 +105,7 @@ export const Logo: React.FC<LogoProps> = ({
     return (
       <Link
         href="/"
-        className="inline-block focus:outline-none focus:ring-2 focus:ring-blue-500/50 rounded-lg p-0.5"
+        className="inline-block focus:outline-none focus:ring-2 focus:ring-[#071633]/20 rounded-lg p-0.5"
         aria-label="Cyber Design House - Return to Homepage"
       >
         {content}

@@ -55,14 +55,14 @@ export const CustomCursor: React.FC = () => {
     <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden" aria-hidden="true">
       {/* Center dot */}
       <div
-        className="fixed w-2 h-2 rounded-full bg-sky-400 -translate-x-1/2 -translate-y-1/2 transition-transform duration-75"
+        className="fixed w-2 h-2 rounded-full bg-[#071633] -translate-x-1/2 -translate-y-1/2 transition-transform duration-75"
         style={{ left: `${position.x}px`, top: `${position.y}px` }}
       />
       {/* Surrounding smooth glowing ring */}
       <div
-        className={`fixed rounded-full border border-sky-400/50 -translate-x-1/2 -translate-y-1/2 transition-all duration-200 ease-out ${
+        className={`fixed rounded-full border border-[#071633]/30 -translate-x-1/2 -translate-y-1/2 transition-all duration-200 ease-out ${
           isHovered
-            ? "w-12 h-12 bg-sky-400/10 border-sky-300 scale-125"
+            ? "w-12 h-12 bg-[#071633]/10 border-[#071633] scale-125"
             : "w-8 h-8 scale-100"
         }`}
         style={{ left: `${position.x}px`, top: `${position.y}px` }}

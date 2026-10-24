@@ -38,11 +38,11 @@ export const ConsentBanner: React.FC = () => {
   return (
     <aside
       aria-label="Cookie consent banner"
-      className="fixed bottom-6 left-6 right-6 sm:right-auto sm:max-w-md z-40 p-4 rounded-2xl glass-panel bg-slate-900/95 border border-sky-400/20 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-bottom-5 duration-300"
+      className="fixed bottom-6 left-6 right-6 sm:right-auto sm:max-w-md z-40 p-4 rounded-2xl glass-panel bg-slate-900/95 border border-white/15 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-bottom-5 duration-300"
     >
       <div className="flex items-start gap-3">
-        <div className="p-2 rounded-xl bg-sky-500/10 border border-sky-400/20 text-sky-400 shrink-0">
-          <ShieldCheck className="w-5 h-5" />
+        <div className="p-2 rounded-xl bg-white/10 border border-white/20 text-white shrink-0">
+          <ShieldCheck className="w-5 h-5 text-white" />
         </div>
         <div className="flex-1">
           <h2 className="text-xs font-semibold text-white uppercase tracking-wider font-mono">
@@ -53,7 +53,7 @@ export const ConsentBanner: React.FC = () => {
             Learn more in our{" "}
             <Link
               href="/privacy-policy"
-              className="text-sky-400 hover:text-sky-300 underline underline-offset-2"
+              className="text-white hover:text-slate-200 underline underline-offset-2 font-medium"
             >
               Privacy Policy
             </Link>
@@ -62,7 +62,7 @@ export const ConsentBanner: React.FC = () => {
           <div className="flex items-center gap-2 mt-3">
             <button
               onClick={handleAccept}
-              className="px-4 py-1.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold text-xs transition-colors"
+              className="px-4 py-1.5 rounded-lg bg-white hover:bg-slate-100 text-[#071633] font-bold text-xs transition-colors"
             >
               Accept All
             </button>
