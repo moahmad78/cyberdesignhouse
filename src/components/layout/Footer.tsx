@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Logo } from "@/components/brand/Logo";
@@ -6,6 +8,17 @@ import { SERVICES, SITE_METADATA } from "@/data/siteData";
 import { Phone, Mail, MapPin, ExternalLink, ArrowUpRight } from "lucide-react";
 
 export const Footer: React.FC = () => {
+  useEffect(() => {
+    console.log(
+      "%c🚀 Cyber Design House %c\n" +
+      "Architected & Developed by Sahil Sheikh\n" +
+      "🔗 Instagram: https://www.instagram.com/sahil_sheikh78\n" +
+      "🏢 Brand: Cyber Design House · by VoometDesign\n" +
+      "📍 Bangalore, India\n",
+      "background: #071633; color: #38bdf8; font-size: 14px; font-weight: bold; padding: 6px 12px; border-radius: 6px; border: 1px solid #1e3a5f;",
+      "color: #94a3b8; font-size: 12px; font-family: monospace; line-height: 1.6;"
+    );
+  }, []);
   return (
     <footer className="relative bg-[#030712] text-slate-300 border-t border-slate-800 overflow-hidden pt-16 pb-12">
       {/* Large faceted CD watermark in background (Section 5.3) */}
@@ -155,21 +168,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar (Section 5.3 & 2.3) */}
         <div className="pt-8 flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center sm:text-left">
-            <p>© 2026 Cyber Design House. All rights reserved.</p>
-            <span className="hidden sm:inline text-slate-700">•</span>
-            <p className="flex items-center gap-1">
-              <span>Developed by</span>
-              <a
-                href="https://www.instagram.com/sahil_sheikh78"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-200 font-semibold hover:text-white hover:underline transition-colors"
-              >
-                Sahil Sheikh
-              </a>
-            </p>
-          </div>
+          <p className="text-center sm:text-left">© 2026 Cyber Design House. All rights reserved.</p>
 
           <p className="flex items-center gap-1.5">
             <span>Powered by</span>
@@ -184,7 +183,7 @@ export const Footer: React.FC = () => {
             <span>Group.</span>
           </p>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center lg:justify-end gap-x-5 gap-y-2">
             <Link href="/privacy-policy" className="hover:text-slate-300 transition-colors">
               Privacy
             </Link>
@@ -194,6 +193,18 @@ export const Footer: React.FC = () => {
             <Link href="/contact" className="hover:text-slate-300 transition-colors">
               Consultation
             </Link>
+            <span className="text-slate-700 hidden sm:inline select-none">•</span>
+            <span className="flex items-center gap-1 text-slate-400">
+              <span>Developed by</span>
+              <a
+                href="https://www.instagram.com/sahil_sheikh78"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white font-bold hover:text-[#38bdf8] hover:underline transition-colors"
+              >
+                Sahil Sheikh
+              </a>
+            </span>
           </div>
         </div>
       </div>
