@@ -25,10 +25,10 @@ export const Logo: React.FC<LogoProps> = ({
   };
 
   const fullSizeClasses = {
-    sm: "h-8 sm:h-9",
-    md: "h-9 sm:h-11",
-    lg: "h-12 sm:h-14",
-    xl: "h-16 sm:h-20",
+    sm: "h-10 sm:h-12",
+    md: "h-12 sm:h-14 lg:h-16",
+    lg: "h-16 sm:h-20 lg:h-24",
+    xl: "h-20 sm:h-28",
   };
 
   const isDark = theme === "dark";
@@ -40,8 +40,8 @@ export const Logo: React.FC<LogoProps> = ({
           <Image
             src="/images/cd-mark.png"
             alt="Cyber Design House Mark"
-            width={48}
-            height={48}
+            width={64}
+            height={64}
             className={`${sizeClasses[size]} w-auto object-contain drop-shadow-sm`}
             priority
           />
@@ -51,8 +51,8 @@ export const Logo: React.FC<LogoProps> = ({
           <Image
             src="/images/logo/image.png"
             alt="Cyber Design House - by VoometDesign"
-            width={308}
-            height={100}
+            width={450}
+            height={146}
             className={`${fullSizeClasses[size]} w-auto object-contain`}
             priority
           />
