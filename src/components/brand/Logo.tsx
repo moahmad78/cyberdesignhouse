@@ -47,13 +47,7 @@ export const Logo: React.FC<LogoProps> = ({
           />
         </div>
       ) : (
-        <div
-          className={`relative flex items-center justify-center overflow-hidden rounded-lg transition-all ${
-            isDark
-              ? "bg-white p-1 shadow-sm border border-slate-200/60"
-              : "bg-transparent p-0.5"
-          }`}
-        >
+        <div className="relative flex items-center justify-center">
           <Image
             src="/images/logo/image.png"
             alt="Cyber Design House - by VoometDesign"
@@ -71,7 +65,7 @@ export const Logo: React.FC<LogoProps> = ({
     return (
       <Link
         href="/"
-        className="inline-block focus:outline-none focus:ring-2 focus:ring-[#071633]/20 rounded-lg p-0.5"
+        className="inline-block focus:outline-none"
         aria-label="Cyber Design House - Return to Homepage"
       >
         {content}
