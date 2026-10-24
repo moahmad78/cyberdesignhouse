@@ -24,10 +24,17 @@ export const Logo: React.FC<LogoProps> = ({
     xl: "h-16",
   };
 
+  const fullSizeClasses = {
+    sm: "h-8 sm:h-9",
+    md: "h-9 sm:h-11",
+    lg: "h-12 sm:h-14",
+    xl: "h-16 sm:h-20",
+  };
+
   const isDark = theme === "dark";
 
   const content = (
-    <div className={`flex items-center gap-3 select-none ${className}`}>
+    <div className={`flex items-center select-none ${className}`}>
       {variant === "mark" ? (
         <div className="relative flex items-center justify-center">
           <Image
@@ -40,62 +47,21 @@ export const Logo: React.FC<LogoProps> = ({
           />
         </div>
       ) : (
-        <div className="flex items-center gap-3">
-          <div className="relative flex items-center justify-center p-1 rounded-lg bg-white shadow-sm border border-slate-200/60">
-            <Image
-              src="/images/cd-mark.png"
-              alt="Cyber Design House Mark"
-              width={40}
-              height={40}
-              className={`${sizeClasses[size]} w-auto object-contain`}
-              priority
-            />
-          </div>
-          <div className="flex flex-col justify-center">
-            <div className="flex items-baseline gap-1.5">
-              <span
-                className={`font-extrabold tracking-wider text-base sm:text-lg font-mono leading-none ${
-                  isDark ? "text-white" : "text-[#071633]"
-                }`}
-              >
-                CYBER
-              </span>
-              <span
-                className={`font-semibold tracking-[0.2em] text-xs uppercase leading-none ${
-                  isDark ? "text-slate-300" : "text-[#314158]"
-                }`}
-              >
-                DESIGN HOUSE
-              </span>
-            </div>
-            <div className="flex items-center gap-1.5 mt-1">
-              <div
-                className={`h-[1px] w-2.5 ${
-                  isDark ? "bg-white/70" : "bg-[#071633]"
-                }`}
-              />
-              <span
-                className={`text-[9px] uppercase tracking-[0.2em] font-medium whitespace-nowrap ${
-                  isDark ? "text-slate-400" : "text-[#62748e]"
-                }`}
-              >
-                by{" "}
-                <strong
-                  className={`font-bold ${
-                    isDark ? "text-white" : "text-[#071633]"
-                  }`}
-                >
-                  VOOMET
-                </strong>
-                DESIGN
-              </span>
-              <div
-                className={`h-[1px] w-6 ${
-                  isDark ? "bg-white/30" : "bg-slate-300"
-                }`}
-              />
-            </div>
-          </div>
+        <div
+          className={`relative flex items-center justify-center overflow-hidden rounded-lg transition-all ${
+            isDark
+              ? "bg-white p-1 shadow-sm border border-slate-200/60"
+              : "bg-transparent p-0.5"
+          }`}
+        >
+          <Image
+            src="/images/logo/image.png"
+            alt="Cyber Design House - by VoometDesign"
+            width={280}
+            height={112}
+            className={`${fullSizeClasses[size]} w-auto object-contain`}
+            priority
+          />
         </div>
       )}
     </div>
