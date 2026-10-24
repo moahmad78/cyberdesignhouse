@@ -57,8 +57,8 @@ export const Logo: React.FC<LogoProps> = ({
           <Image
             src="/images/logo/image.png"
             alt="Cyber Design House - by VoometDesign"
-            width={280}
-            height={112}
+            width={308}
+            height={100}
             className={`${fullSizeClasses[size]} w-auto object-contain`}
             priority
           />
