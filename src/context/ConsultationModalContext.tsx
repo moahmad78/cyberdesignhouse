@@ -33,6 +33,21 @@ export const ConsultationModalProvider: React.FC<{ children: ReactNode }> = ({ c
     setPrefilledService(undefined);
   };
 
+  // Auto-open modal if URL query parameter (?consultation=open or #consultation) is present
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const searchParams = new URLSearchParams(window.location.search);
+      if (
+        searchParams.get("consultation") === "open" ||
+        searchParams.get("form") === "open" ||
+        window.location.hash === "#consultation"
+      ) {
+        const prefill = searchParams.get("service") || undefined;
+        openModal(prefill);
+      }
+    }
+  }, []);
+
   // Global interception for any "Book Consultation" or "/contact" triggers
   useEffect(() => {
     const handleGlobalClick = (e: MouseEvent) => {
