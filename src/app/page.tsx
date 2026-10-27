@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/home/HeroSection";
+import { BrandsSection } from "@/components/home/BrandsSection";
 import { PinnedServicesSection } from "@/components/home/PinnedServicesSection";
 import { ProcessSection } from "@/components/home/ProcessSection";
 import { WhyUsSection } from "@/components/home/WhyUsSection";
@@ -42,7 +43,10 @@ export default function HomePage() {
       {/* 1. Hero Section */}
       <HeroSection />
 
-      {/* 2. Services */}
+      {/* 2. Client Brands Logo Strip (All 12 VoometDesign Brands) */}
+      <BrandsSection />
+
+      {/* 3. Services */}
       <PinnedServicesSection />
 
       {/* 3. The Advantage (Why Cyber Design House) */}
