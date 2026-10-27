@@ -163,8 +163,8 @@ export const HeroSection: React.FC = () => {
             Web & app development, digital marketing & SEO, and verified influencer marketing — designed to turn attention into measurable growth.
           </p>
 
-          {/* Interactive Service Switcher Pills - Single Line on Mobile & Desktop */}
-          <div className="w-full flex items-center gap-1.5 sm:gap-2 mb-6 sm:mb-8 overflow-x-auto scrollbar-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden flex-nowrap py-1 -mx-4 px-4 sm:mx-0 sm:px-0">
+          {/* Interactive Service Switcher Pills - All 4 pills fit seamlessly on mobile without clipping */}
+          <div className="w-full grid grid-cols-4 sm:flex sm:w-auto sm:items-center gap-1 sm:gap-2 mb-6 sm:mb-8 py-1">
             <span className="hidden sm:inline-block text-[11px] font-mono uppercase tracking-wider text-white/50 font-bold mr-1 shrink-0 whitespace-nowrap">
               Explore:
             </span>
@@ -172,13 +172,13 @@ export const HeroSection: React.FC = () => {
               <button
                 key={item.tag}
                 onClick={() => handleSelectService(idx)}
-                className={`text-[11px] sm:text-xs font-semibold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 shrink-0 whitespace-nowrap ${
+                className={`text-[10px] sm:text-xs font-semibold px-1 sm:px-3 py-1 sm:py-1.5 rounded-full transition-all cursor-pointer flex items-center justify-center gap-1 sm:gap-1.5 whitespace-nowrap text-center ${
                   idx === currentIndex
-                    ? "bg-white text-[#071633] font-bold shadow-md scale-100 sm:scale-105"
+                    ? "bg-white text-[#071633] font-bold shadow-md"
                     : "bg-white/10 text-white/80 hover:bg-white/20 border border-white/15"
                 }`}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shrink-0" />
+                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#3b82f6] shrink-0" />
                 <span>{item.shortTitle}</span>
               </button>
             ))}
