@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { appendLeadToGoogleSheet } from "@/lib/googleSheet";
+import { sendLeadNotificationEmail } from "@/lib/mailer";
 
 export async function POST(req: Request) {
   try {
@@ -12,19 +14,46 @@ export async function POST(req: Request) {
       );
     }
 
-    console.log("=== NEW INFLUENCER APPLICATION RECEIVED ===");
-    console.log({
-      name,
-      handle,
-      platform,
-      category,
-      followers,
-      email,
-      phone,
-      sampleReel,
-      message,
-      submittedAt: new Date().toISOString(),
-    });
+    const creatorNotes = [
+      `Handle: ${handle} (${platform || "Instagram"})`,
+      category ? `Niche: ${category}` : "",
+      followers ? `Followers: ${followers}` : "",
+      sampleReel ? `Sample Link: ${sampleReel}` : "",
+      message ? `Pitch: ${message}` : "",
+    ].filter(Boolean).join(" | ");
+
+    // 1. Append directly to VoometDesign Google Sheet
+    try {
+      await appendLeadToGoogleSheet({
+        name: name.trim(),
+        mobileNumber: phone.trim(),
+        email: email.trim(),
+        projectLocation: "Creator Network",
+        requirement: `Influencer Marketing (${category || "General"})`,
+        projectDetails: creatorNotes,
+        areaSqft: followers || "N/A",
+        submissionSource: "Cyber Design House (Creator Application)",
+        createdAt: new Date().toISOString(),
+      });
+    } catch (sheetErr) {
+      console.error("[IT API] Failed to append creator lead to Google Sheet:", sheetErr);
+    }
+
+    // 2. Dispatch email to voometd@gmail.com
+    try {
+      await sendLeadNotificationEmail({
+        name: name.trim(),
+        mobileNumber: phone.trim(),
+        email: email.trim(),
+        company: `${handle} (${platform || "Social Creator"})`,
+        requirement: `Creator Application — ${category || "General"} (${followers || "Audience"})`,
+        projectDetails: creatorNotes,
+        submissionSource: "Cyber Design House (Creator Application)",
+        timestamp: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+      });
+    } catch (mailErr) {
+      console.error("[IT API] Failed to send creator email notification:", mailErr);
+    }
 
     return NextResponse.json(
       {
