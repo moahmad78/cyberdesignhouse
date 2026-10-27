@@ -79,14 +79,14 @@ export function BrandsSection() {
               {LOGOS.map((logo, index) => (
                 <div
                   key={`brand-1-${index}`}
-                  className="relative flex-shrink-0 w-[130px] md:w-[160px] h-[40px] md:h-[50px] transition-all duration-300 opacity-80 hover:opacity-100 hover:scale-105"
+                  className="relative flex-shrink-0 w-[130px] md:w-[160px] h-[40px] md:h-[50px] transition-all duration-300 opacity-95 hover:opacity-100 hover:scale-105"
                 >
                   <Image
                     src={logo.src}
                     alt={logo.name}
                     fill
                     sizes="(max-width: 768px) 130px, 160px"
-                    className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                    className="object-contain transition-all duration-300"
                   />
                 </div>
               ))}
@@ -100,14 +100,14 @@ export function BrandsSection() {
               {LOGOS.map((logo, index) => (
                 <div
                   key={`brand-2-${index}`}
-                  className="relative flex-shrink-0 w-[130px] md:w-[160px] h-[40px] md:h-[50px] transition-all duration-300 opacity-80 hover:opacity-100 hover:scale-105"
+                  className="relative flex-shrink-0 w-[130px] md:w-[160px] h-[40px] md:h-[50px] transition-all duration-300 opacity-95 hover:opacity-100 hover:scale-105"
                 >
                   <Image
                     src={logo.src}
                     alt={logo.name}
                     fill
                     sizes="(max-width: 768px) 130px, 160px"
-                    className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                    className="object-contain transition-all duration-300"
                   />
                 </div>
               ))}
