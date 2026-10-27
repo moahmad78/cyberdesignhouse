@@ -7,6 +7,28 @@ import { ArrowLeft, ArrowUpRight, BookOpen, Clock, Calendar, Tag } from "lucide-
 import { CompanySidebar } from "@/components/layout/CompanySidebar";
 import { BLOG_POSTS, BlogPost } from "@/data/blogData";
 
+function renderParagraphWithLinks(text: string) {
+  const urlRegex = /(https?:\/\/[^\s)]+)/g;
+  const parts = text.split(urlRegex);
+  return parts.map((part, i) => {
+    if (part.match(urlRegex)) {
+      return (
+        <a
+          key={i}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-800 font-semibold underline underline-offset-2 transition-colors break-all"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {part}
+        </a>
+      );
+    }
+    return part;
+  });
+}
+
 export default function BlogPage() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
@@ -234,9 +256,32 @@ export default function BlogPage() {
                 <span>{selectedPost.readTime}</span>
               </div>
 
+              {selectedPost.websiteUrl && (
+                <div className="p-4 rounded-2xl bg-blue-50/90 border border-blue-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 my-2">
+                  <div>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-blue-700 block">
+                      Live Platform
+                    </span>
+                    <p className="text-xs text-slate-700 font-medium">
+                      Explore building materials online with 60-minute Bangalore delivery.
+                    </p>
+                  </div>
+                  <a
+                    href={selectedPost.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#071633] hover:bg-blue-900 text-white text-xs font-semibold transition-all shadow-xs"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <span>Visit {selectedPost.websiteUrl.replace(/^https?:\/\/(www\.)?/, "")}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              )}
+
               {selectedPost.content.map((paragraph, idx) => (
                 <p key={idx} className="text-[#475569] leading-relaxed">
-                  {paragraph}
+                  {renderParagraphWithLinks(paragraph)}
                 </p>
               ))}
 
@@ -244,12 +289,25 @@ export default function BlogPage() {
                 <div className="text-xs text-slate-500">
                   Ready to apply these architectural standards to your product?
                 </div>
-                <Link
-                  href="/contact"
-                  className="px-5 py-2 rounded-full bg-[#071633] text-white text-xs font-semibold hover:bg-[#0c2452] transition-colors"
-                >
-                  Book Free Consultation
-                </Link>
+                <div className="flex items-center gap-2">
+                  {selectedPost.websiteUrl && (
+                    <a
+                      href={selectedPost.websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 rounded-full border border-slate-300 text-[#071633] text-xs font-semibold hover:bg-slate-50 transition-colors inline-flex items-center gap-1"
+                    >
+                      <span>Explore Platform</span>
+                      <ArrowUpRight className="w-3 h-3" />
+                    </a>
+                  )}
+                  <Link
+                    href="/contact"
+                    className="px-5 py-2 rounded-full bg-[#071633] text-white text-xs font-semibold hover:bg-[#0c2452] transition-colors"
+                  >
+                    Book Free Consultation
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

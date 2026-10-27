@@ -13,9 +13,34 @@ export interface BlogPost {
   image: string;
   tags: string[];
   content: string[];
+  websiteUrl?: string;
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "engineering-intrihub-quick-commerce-construction-materials-bangalore",
+    title: "Engineering Intrihub: Inside the Tech Stack Powering 60-Minute Building Material Delivery in Bangalore",
+    excerpt: "How Intrihub engineered sub-second SKU queries across 20+ building material categories, automated geofenced inventory allocation, and solved real-time dispatch logistics for Bangalore construction sites.",
+    category: "Web & App Development",
+    readTime: "6 min read",
+    date: "October 27, 2026",
+    websiteUrl: "https://www.intrihub.com",
+    author: {
+      name: "Cyber Design House Tech Lead",
+      role: "Principal Systems Architect",
+      avatar: "/images/cd-mark.png",
+    },
+    image: "/images/intrihub-tech.webp",
+    tags: ["Intrihub", "Quick Commerce", "Marketplace Tech", "Next.js 16", "Logistics", "Bangalore Tech"],
+    content: [
+      "Quick-commerce has fundamentally reshaped consumer grocery delivery across India with 10-minute promises. However, building and interior materials—heavy vitrified tiles, 8x4ft marine plywood, copper wires, and plumbing pipes—present entirely different engineering and algorithmic challenges that traditional ecommerce architectures fail to address.",
+      "Intrihub (https://www.intrihub.com) was architected to solve this critical bottleneck. Founded by Sahil Sheikh, Intrihub connects Bangalore contractors, interior designers, architects, and homeowners directly with verified manufacturers and local dispatch hubs under the promise 'Every Material. Every Space.' with guaranteed 60-minute site delivery in Bengaluru.",
+      "From an engineering standpoint, delivering building materials in 60 minutes required building a hyper-local event-driven dispatch engine. Orders are dynamically matched against real-time hub inventory, calculating volumetric weight constraints to assign appropriate transport fleets (rapid 2-wheelers for electricals/hardware vs electric 3-wheelers for heavy stone and plywood).",
+      "Catalog performance is equally critical. Intrihub hosts over 20 product categories with thousands of technical SKUs. By implementing edge caching, hybrid Next.js server rendering, and automated quantity calculators that convert room dimensions into precise box counts and cutting buffers, the platform delivers sub-80ms page transitions with zero client-side lag.",
+      "Furthermore, Intrihub integrates automated B2B GST invoicing and verified factory-direct pricing feeds from Morbi and Bangalore. By replacing opaque middleman markups with transparent, programmatic supplier feeds, site contractors can order directly with full billing compliance.",
+      "To explore Intrihub's 20+ building material categories or place a 60-minute site order in Bangalore, visit the official platform at https://www.intrihub.com."
+    ],
+  },
   {
     slug: "architecting-nextjs-16-sub-second-web-vitals",
     title: "Architecting Next.js 16 Web Applications with Sub-2s Core Web Vitals",
