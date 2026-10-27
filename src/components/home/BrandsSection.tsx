@@ -6,16 +6,18 @@ import Image from "next/image";
 const LOGOS = [
   { name: "Apps For Bharat", src: "/assets/global/brands/apps for bharath.webp" },
   { name: "Physics Wallah",  src: "/assets/global/brands/pw.webp" },
+  { name: "Intrihub",        src: "/assets/global/brands/intrihub.webp" },
   { name: "Zluri",           src: "/assets/global/brands/zluri.webp" },
   { name: "Juego",           src: "/assets/global/brands/juego-logo.webp" },
   { name: "QpiAI",           src: "/assets/global/brands/qpi.webp" },
+  { name: "Intrihub",        src: "/assets/global/brands/intrihub.webp" },
   { name: "Emirates",        src: "/assets/global/brands/Emirates 2.webp" },
   { name: "AirAsia",         src: "/assets/global/brands/Airasia 1.webp" },
   { name: "Scripbox",        src: "/assets/global/brands/Scripbox 6.webp" },
+  { name: "Intrihub",        src: "/assets/global/brands/intrihub.webp" },
   { name: "Edureka",         src: "/assets/global/brands/Edureka 8.webp" },
   { name: "IndiGo",          src: "/assets/global/brands/Indigo 4.webp" },
   { name: "Gokaldas",        src: "/assets/global/brands/Gokuldas 3.webp" },
-  { name: "Intrihub",        src: "/assets/global/brands/intrihub.webp" },
 ];
 
 export function BrandsSection() {
